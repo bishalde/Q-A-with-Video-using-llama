@@ -1,0 +1,1019 @@
+ Welcome to the Ultimate Docker course.
+ In this course, I'm going to take you on a journey and teach you everything you need
+ to know about Docker from the basics to my advanced concepts.
+ So by the end of this course, you'll be able to use it like a pro as part of your software
+ Devonement workflow.
+ If you're looking for a comprehensive and highly practical course that takes you from 0 to
+ 0, this is the Docker course for you.
+ We're going to start off with a really simple project so you understand the basics.
+ Then we'll use Docker, run and deploy a full stack application with a front end, back
+ end and a database.
+ So you learn all the necessary techniques and apply them to your own projects.
+ I'm Mosh Hamadani and I've taught millions of people how to advance their software engineering
+ skills through my YouTube channel and online school code with mosh.com.
+ If you're new here, be sure to subscribe as you upload new videos all the time.
+ Now let's jump in and get started.
+ Let's quickly talk about what you need to know to take this course.
+ To take this course, you don't need any prior knowledge of Docker because I'm going to
+ teach you everything from scratch, but you should have at least three months of program
+ and experience.
+ Ideally, you should have built at least one application so you should know concepts like
+ front end, back end, API and database.
+ It doesn't matter what language is and frameworks or what database engines you're familiar
+ with, but you should know what these concepts are all about.
+ Also you should be familiar with basic Git commands like clothing and GitHub repository,
+ committing code, pushing and pulling.
+ Just the basics, nothing more.
+ With all that, let's move on to the next lesson.
+ Now, we all have different ways of learning things, but let me tell you what I think is
+ the best way to take this course.
+ This course is highly practical, so you should be active while watching this course.
+ In my opinion, it's best if you watch each lesson, take some notes.
+ You can either take notes on a piece of paper or using your favorite note taken tool.
+ Just write some keywords, some keywords that help you remember what we talked about.
+ Then after each lesson, go through your notes and repeat the same steps I've taken in that
+ lesson.
+ So if I talked about a bunch of commands, play with those commands, make sure you understand
+ how they work.
+ If you follow that, I promise you, by the end of this course, you're going to master
+ Docker and use it like a pro.
+ All right, our journey to master Docker begins here.
+ In every section, you're going to discover something new about Docker.
+ In this section, we're going to talk about what Docker is and why it's so popular.
+ Then we're going to talk about virtual machines and containers.
+ Next, we're going to talk about the architecture of Docker, so you understand how it works.
+ Then we're going to install Docker and get our hands dirty.
+ I'm going to give you an overview of your development workflow with Docker.
+ And then we're going to see that in action using a really simple example.
+ So by the end of this section, you will have an idea of what Docker is all about.
+ I'm so excited about this section.
+ I hope you are too.
+ So let's jump in and get started.
+ So what is Docker and what is everyone using it these days?
+ Well, Docker is a platform for building, running and shipping applications in a consistent
+ manner.
+ So if your application works on your development machine, it can run and function the
+ same way on other machines.
+ If you have been developing software for a while, you've probably come across this situation
+ where your application works on your development machine, but doesn't somewhere else.
+ Can you think of three reasons why this happens?
+ Well, this can happen if one or more files are not included as part of your deployment.
+ So your application is not completely deployed.
+ It's missing something.
+ This can also happen if the target machine is running a different version of some software
+ that your application needs.
+ Let's say your application needs node version 14, but the target machine is running node
+ version 9.
+ This can also happen if the configuration settings like environment variables are different across
+ these machines.
+ And this is where Docker comes to the rescue with Docker.
+ We can easily package up our application with everything it needs and run it anywhere
+ on any machine with Docker.
+ So if your application needs a given version of node and MongoDB, all of these will be included
+ in your application's package.
+ Now, we can take this package and run it on any machine that runs Docker.
+ So if it works on your development machine, it's definitely going to work on your test
+ and production machines.
+ Now, there's more.
+ If someone joins your team, they don't have to spend half a day or so setting up a new
+ machine to run your application.
+ They don't have to install and configure all these dependencies.
+ They simply tell Docker to bring up your application and Docker itself will automatically download
+ and run these dependencies inside an isolated environment called a container.
+ And this is the beauty of Docker.
+ This isolated environment allows multiple applications use different versions of some software
+ side by side.
+ So one application may use node version 14.
+ Another application may use node version 9.
+ Both these applications can run side by side on the same machine without messing with
+ each other.
+ So this is how Docker allows us to consistently run an application on different machines.
+ Now, there's one more benefit here.
+ When we're done with this application and don't want to work on it anymore, we can remove
+ the application and all these dependencies in one go.
+ Without Docker, as we work on different projects, our development machine gets cluttered with
+ so many libraries and tools that are used by different applications.
+ And then after a while, we don't know if we can remove one or more of these tools because
+ we're always afraid that we would mess up with some application.
+ With Docker, we don't have to worry about this.
+ Because each application runs with its dependencies inside an isolated environment, we can save
+ the removal of an application with all these dependencies to clean up our machine.
+ Isn't that great?
+ So in a nutshell, Docker helps us consistently build, run, and ship our applications.
+ And that's why a lot of employers are looking for people with Docker skills these days.
+ So if you're pursuing a job as a software or DevOps engineer, I highly encourage you
+ to learn Docker and learn it well.
+ And that's exactly what this course is all about.
+ I'm going to take you on a journey and teach you everything you need to know about Docker
+ so you can use it like a pro.
+ No copy-pasting commands here.
+ So in the last lesson, I briefly talked about containers.
+ A container is an isolated environment for running an application.
+ Now one of the questions that often comes up is how are containers different from virtual
+ machines or VMs?
+ Do you know the differences?
+ A virtual machine, as the name implies, is an abstraction of a machine or physical hardware.
+ So we can run several virtual machines on a real physical machine.
+ For example, we can have a Mac and on this Mac, we can run two virtual machines, one
+ running Windows, the other running Linux.
+ How do we do that?
+ Using a tool called Hypervisor.
+ I know, it's one of those computer science names.
+ In simple terms, a hypervisor is software we use to create and manage virtual machines.
+ There are many hypervisors available out there like virtual box and VMware, which are
+ cross-platform so they can run on Windows, Mac OS and Linux, and Hyper-V, which is only
+ for Windows.
+ So with a hypervisor, we can manage virtual machines.
+ Now what is the benefit of building virtual machines?
+ Well, for us software developers, we can run an application in isolation inside a virtual
+ machine.
+ So on the same physical machine, we can have two different virtual machines, each running
+ a completely different application and each application has the exact dependencies it
+ needs.
+ So application one may use node version 14 and MongoDB version 4, while application two
+ may use node version 9 and MongoDB version 3.
+ All these are running on the same machine, but in different isolated environments.
+ That's one of the benefits of virtual machines, but there are a number of problems with this
+ model.
+ Each virtual machine needs a full copy of an operating system that needs to be licensed,
+ attached and monitored.
+ And that's why these virtual machines are slow to start because the entire operating system
+ has to be loaded just like starting your computer.
+ Another problem is that these virtual machines are resource intensive because each virtual
+ machine takes a slice of the actual physical hardware resources like CPU, memory and disk
+ space.
+ So if you have eight gigabytes of memory, that memory has to be divided between different
+ virtual machines.
+ Of course, we can decide how much memory to allocate to each virtual machine, but at the
+ end of the day, we have a limit in terms of the number of VMs we can run on a machine.
+ Usually a handful otherwise we're going to run out of hardware resources.
+ Now let's talk about containers.
+ Containers give us the same kind of isolation, so we can run multiple applications in isolation,
+ but they're more lightweight.
+ They don't need a full operating system.
+ In fact, all containers on a single machine share the operating system of the host.
+ So that means we need to license, patch and monitor a single operating system.
+ Also because the operating system has already started on the host, a container can start
+ up pretty quickly, usually in a second, sometimes less.
+ And also, these containers don't need a slice of the hardware resources on the host.
+ So we don't need to give them a specific number of CPU cores or a slice of memory or disk
+ space.
+ So at a single host, we can run tens or even hundreds of containers side by side.
+ So these are the differences between containers and virtual machines.
+ Let's talk about the architecture of Docker, so you understand how it works.
+ Docker uses a client server architecture, so it has a client component that talks to a
+ server component using a RESTful API.
+ The server also called the Docker engine sits on the background and takes care of building
+ and running Docker containers.
+ Technically, a container is just a process, like other processes running on your computer,
+ but it's a special kind of process which we're going to talk about soon.
+ Now, as I told you, unlike virtual machines, containers don't contain a full blown operating
+ system.
+ Instead, all containers on a host share the operating system of the host.
+ But more accurately, all those containers share the kernel of the host.
+ What's a kernel?
+ A kernel is the core of an operating system.
+ It's like the engine of a car.
+ It's the part that manages all applications as well as hardware resources like memory and
+ CPU.
+ Every operating system has its own kernel or engine, and these kernels have different
+ APIs.
+ That's why we cannot run a Windows application on Linux because under the hood, this application
+ is to talk to the kernel of the underlying operating system.
+ OK?
+ So, that means on a Linux machine, we can only run Linux containers because these containers
+ need Linux.
+ On a Windows machine, however, we can run both Windows and Linux containers because Windows
+ 10 is now shipped with a custom built Linux kernel.
+ This is in addition to the Windows kernel that's always been in Windows.
+ It's not a replacement.
+ So with this Linux kernel, now we can run Linux applications natively on Windows.
+ So on Windows, we can run both Linux and Windows containers.
+ Our Windows containers share the Windows kernel and our Linux containers share the Linux
+ kernel.
+ OK?
+ Now, what about Mac OS?
+ Well, Mac OS has its own kernel, which is different from Linux and Windows kernels,
+ and this kernel does not have native support for containers applications.
+ So the darker on Mac uses a lightweight Linux virtual machine to run Linux containers.
+ All right.
+ Now, let's talk about architecture.
+ Next, we're going to install Docker, and that's where the fun begins.
+ All right.
+ Now let's install the latest version of Docker.
+ If you have an existing version of Docker on your machine, I highly encourage you to
+ upgrade to the latest version because your version might be old and not compatible with
+ the version I'm using in this course.
+ So here I'm using Docker version 20.10.5.
+ OK?
+ So to get Docker, go to this page docs.docker.com slash get Docker, or you can just Google get
+ Docker or install Docker.
+ Now on this page, we can see instructions for downloading and installing Docker desktop
+ for Mac and Windows, as well as Docker Engine for Linux.
+ So on Mac and Windows, we have Docker desktop, which is the combination of Docker Engine
+ plus a bunch of other tools.
+ At the time of recording this, we don't have Docker desktop for Linux.
+ We only have the Docker Engine, but of course that might change in the future.
+ So a couple of notes for my Mac and Windows users.
+ Let's go through this page.
+ So over here, you can download the latest version from Docker Hub.
+ But before doing this, I highly encourage you to go through a system requirements and make
+ sure your computer satisfies these requirements.
+ Otherwise, you might encounter weird issues.
+ So the installation is pretty straightforward.
+ When you go to this page, you're going to download a DMG file.
+ Just drag and drop this onto the application folder and then start it.
+ This is very important.
+ A lot of people miss that step.
+ So when you start Docker Engine by double clicking on this application, you're going to
+ see the Docker icon on the top status bar.
+ If you don't see this, Docker Engine is not running and there is nothing you can do.
+ So you have to wait for this to start.
+ The same applies to my Windows users.
+ So back to this page.
+ Let's look at the instructions for Windows.
+ So once again, you can download the latest version from Docker Hub.
+ But once again, make sure to read system requirements.
+ One of the things that is really important is enabling Hyper-V and Container's Windows
+ features.
+ So I don't have a Windows machine to show you here, but just go to the page where you
+ can turn on or turn off Windows features.
+ There, make sure you have enabled Hyper-V and Containers.
+ It's pretty straightforward, but if you can't find it, just google it.
+ I'm pretty sure there are tons of articles out there.
+ Also at the end of the installation, you might get an error saying WS2 installation is incomplete.
+ Basically, what this error is saying is that you need to upgrade the Linux kernel that
+ is shipped with your Windows.
+ So just click on this link.
+ This is going to take you to this page on Microsoft.com where you can download the latest Linux
+ kernel.
+ So just click on this link to get an MSI file, run it, and then you have to restart your
+ computer.
+ Now, once your computer is re-started, you need to wait a little while until Docker Engine
+ started.
+ Depending on your machine, this might take several seconds or up to a minute.
+ So wait a little while, then open up a terminal window and run Docker version.
+ So over here, you can see the version of the client and the server.
+ If the server, which is Docker Engine, is not running, you are not going to see this
+ information.
+ And this applies to all operating systems, Windows, Mac OS, and Linux.
+ So make sure Docker Engine is running before going forward.
+ If you encounter any errors, you can post your question on our forum at forum.co.wetmosh.com
+ or if you want a faster response, just google the error message and pretty sure hundreds
+ of people have encountered the same problem as you.
+ Now let's talk about your development workflow when using Docker.
+ So to start off, we take an application.
+ It doesn't matter what kind of application it is or how it's built.
+ We take that application and Dockerize it, which means we make a small change so that
+ it can be run by Docker.
+ How?
+ We just add a Docker file to it.
+ A Docker file is a plain text file that includes instructions that Docker uses to package
+ of this application into an image.
+ This image contains everything our application needs to run.
+ Typically, it cut down operating system, a runtime environment like Node or Python.
+ It also contains application files, third party libraries, environment variables, and so
+ on.
+ So we create a Docker file and give it to Docker for packaging our application into an
+ image.
+ Once we have an image, we tell Docker to start a container using that image.
+ So a container as I told you is just a process.
+ But it's a special kind of process because it has its own file system which is provided
+ by the image.
+ So our application gets loaded inside a container or a process and this is how we run our application
+ locally on our development machine.
+ So instead of directly launching the application and running it inside a typical process, we
+ tell Docker to run it inside a container, an isolated environment.
+ Now here's the beauty of Docker.
+ Once we have this image, we can push it to a Docker registry like Docker Hub.
+ Docker Hub to Docker is like GitHub to Git.
+ It's a storage for Docker images that anyone can use.
+ So once our application image is on Docker Hub, then we can put it on any machines running
+ Docker.
+ This machine has the same image we have on our development machine, which contains a specific
+ version of our application with everything it needs.
+ So we can start our application the same way we started it on our development machine.
+ We just tell Docker to start a container using this image.
+ So with Docker, we no longer need to maintain long, complex, released documents that have
+ to be precisely followed.
+ All the instructions for building an image of an application are written in a Docker file.
+ With that, we can package our application into an image and run it virtually anywhere.
+ This is the beauty of Docker.
+ Next, we're going to see this workflow in action.
+ In this lesson, I'm going to walk you through a typical development workflow that don't
+ try to memorize anything in this lesson because I just want you to see the big picture.
+ So everything I show you in this lesson, we're going to cover in depth later in the course.
+ So here in this terminal window, I'm currently on my desktop.
+ I'm going to create a new directory called HelloDocker, then go inside this directory and
+ open it in Visual Studio Code.
+ So I'm going to use VS Code as my editor, but you can use any editor that you prefer.
+ Okay.
+ Now in this directory, I'm going to add a new file called app.js.
+ You're going to write one line of JavaScript code.
+ You don't have to be a JavaScript developer.
+ You don't even need to learn JavaScript.
+ So just follow along with me.
+ So here we're going to write console in lowercase.log.
+ Hello Docker.
+ So with this, we're going to print a message on the terminal.
+ Let's say this is an application and we want to dockerize this application.
+ So we want to build, run and ship it using Docker.
+ So typically without Docker, if you want to ship this application or more accurate than
+ this program to a different computer, on that computer, we need to install node.
+ And then we can go to the terminal and type nodeapp.js.
+ So we get the output.
+ So here are the instructions for deploying this program.
+ We need to start with an operating system.
+ Then we need to install node, which is an execution environment for JavaScript code.
+ Next we need to copy our application files and finally we need to run nodeapp.js.
+ So we have to follow four steps just for a simple program.
+ And if you were working with a really complex application, you would end up with a complex
+ release document that had to be precisely followed.
+ Now this is where Docker comes to the rescue.
+ We can write these instructions inside a Docker file and let Docker package our application.
+ So back to VS code, we're going to add another file to this project called Docker file.
+ So capital D and all the other letters are lowercase.
+ And this file doesn't have any extensions.
+ Okay.
+ Now VS code is asking if you want to install the recommended extensions for Docker, we
+ can go ahead with that.
+ Good.
+ So back to this Docker file, here we write instructions for package our application.
+ So typically we start from a base image.
+ This base image as a bunch of files, we're going to take those files and add additional
+ files to it.
+ This is kind of like inheritance in programming.
+ Okay.
+ So what is the base image?
+ Well, we can start from a Linux image and then install node on top of it.
+ Or we can start from a node image.
+ This image is already built on top of Linux.
+ Now how do I know these names?
+ Well, these images are officially published on Docker Hub.
+ So if you go to hub.docker.com and search for node, you can see the official node image
+ here.
+ So Docker Hub is a registry for Docker images.
+ Now back to a Docker file.
+ So we start from a node image.
+ Now if you look at Docker Hub, you will see that there are multiple node images.
+ These node images are built on top of different distributions of Linux.
+ So Linux has different distributions or different flavors used for different purposes.
+ Now here we can specify a tag using a colon to specify which Linux distribution we want
+ to use for this demo.
+ I'm going to use Alpine, which is a very small Linux distribution.
+ So the size of the image that we're going to download and build on top of is going
+ to be very small.
+ So we start from that image.
+ Then we need to copy our application or program files.
+ For that we use the copy instruction or copy command.
+ We're going to copy all the files in the current directory into the app directory into
+ that image.
+ So that image has a file system and in that file system we're going to create a directory
+ called app.
+ Okay.
+ Now finally we're going to use the command instruction to execute the command.
+ What command should we execute here?
+ Node app.js.
+ But this file is inside the app directory.
+ So we have to prefix it with a directory name.
+ Alternatively here we could set the current working directory work dir to slash app.
+ And then we don't need to prefix this with the directory name.
+ So when we use this instruction all the following instructions assume that we're currently
+ inside the app directory.
+ Okay.
+ So these instructions clearly document our deployment process.
+ Now we go to the terminal and tell Docker to package up our application.
+ So we say Docker build.
+ We need to give our image a tag, a tag to identify.
+ So dash t here we specify a name like hello Docker.
+ And then we need to specify where Docker can find a Docker file.
+ So we're currently inside hello Docker directory and our Docker file is right here.
+ So we use a period to reference the current directory.
+ Let's go with that.
+ Now you might be expecting an image file inside the current directory.
+ But back in VS code look there is nothing here because the image is not stored here.
+ And in fact an image is not a single file.
+ How Docker stores this image is very complex and we don't have to worry about it.
+ So back to the terminal to see all the images on this computer.
+ We type Docker images or Docker image LS which is short for less.
+ So take a look on this machine.
+ We have a repository called hello Docker in this repository.
+ We have an image with this tag latest.
+ So Docker added this by default.
+ We'll talk about this later in the course.
+ But basically we use these tags for versioning our images.
+ So each image can contain a different version of our application.
+ OK.
+ Now each image also has a unique identifier.
+ Here we can see when the image was created and the size of this image.
+ So because we used node from Linux Alpine we ended up with 112 megabytes of data in this image.
+ So this image contains Alpine Linux node and our application files.
+ And the total size is 112 megabytes.
+ If we used a different node image that was based on a different distribution of Linux,
+ we would end up with a larger image.
+ And then when deploying that image, we would have to transfer that image from one computer to another.
+ So that's why we use node Alpine because this is a very small image.
+ OK.
+ So we built this image.
+ Now we can run this image on any computer running Docker.
+ So on this machine, which is my development machine, I can say Docker run and then type the image name.
+ Hello, Docker.
+ And it doesn't matter which directory I'm in because this image contains all the files for running our application.
+ Now look, we see the message on the terminal.
+ Now I can go ahead and publish this image to Docker Hub.
+ So anyone can use this image.
+ Then I can go on another machine like a test or a production machine and pull and run this image.
+ In fact, I've done this before recording this video.
+ So back to Docker Hub.
+ Look, I have this repository called with mosh slash hello Docker.
+ Now we can take this image and run it on any computers.
+ Let me show you something really cool.
+ So let's search for play with Docker.
+ Let's go through this page and login.
+ Here we need to sign in with our Docker ID.
+ Anyone can create this ID on Docker.com.
+ So let's go ahead and start a lab.
+ Over here, we can start a new virtual machine.
+ So let's add a new instance.
+ Now this virtual machine is a black machine.
+ It only has an operating system, which is Linux and Docker.
+ So in this terminal window, if we type node.
+ Look, node command not found.
+ So node is not installed here.
+ But because we have Docker, we can pull and run the image that I published on Docker Hub.
+ So let me maximize this window by pressing alt and enter.
+ First, let's run Docker version.
+ So on this machine, we're running Docker version 20.10.0.
+ So to pull and run my program, first we type Docker pool, code with mosh slash hello-docker.
+ We are at Docker downloaded this image.
+ We can verify it by typing Docker.
+ What command should we run here?
+ Docker images or image elas.
+ So on this machine, we have this repository, code with mosh slash hello-docker.
+ And this repository contains a single image with this tag latest.
+ So now we can run this application exactly the same way we run it on my development machine.
+ So from any directory, we can type Docker, run, code with mosh slash hello-docker.
+ And here's the message, beautiful.
+ Of course, I had to cut this down in editing.
+ It took a little while to start this application on this very slow virtual machine.
+ But you got the point.
+ So we can take any application and dockerize it by adding a Docker file to it.
+ This Docker file contains instructions for packaging an application into an image.
+ So just to have an image, we can run it virtually anywhere on any machine with Docker.
+ Hey guys, mosh here.
+ If you're serious about learning Docker, I actually have a complete Docker course on my
+ coding school code with mosh.com.
+ This tutorial you've been watching is a cut down version of the complete course.
+ In the full course, you will learn how to run and deploy a full stack application with
+ a front end, back end, and a database.
+ Our application also includes automated tests.
+ So it's a great real-world scenario for learning Docker.
+ Just like my other courses, you will also receive a 30-day money-back guarantee and a certificate
+ of completion you can add to your resume.
+ In case you're interested, you can find the link down below in the description box.
+ Alright, the next topic in our journey is the Linux command line.
+ But why Linux?
+ What if you're a Windows user?
+ Well, you still need to know a bit of Linux for a number of reasons.
+ The starter, Docker has its foundations built on top of basic Linux concepts.
+ So if you want to be productive and troubleshoot issues easily, you need to know some of the
+ basic Linux commands.
+ Also, most tutorials online are based on Linux commands, so if you don't understand
+ these basic commands, you're not going to get far.
+ In my opinion, learning Linux is like learning English.
+ I think everybody should know some English these days.
+ You don't need to speak it or write a book in it, but you need to understand it.
+ So unless you're a power Linux user, do not skip the section.
+ It's going to be super easy and extremely useful.
+ So let's jump in and get started.
+ Let's start off this section by talking about Linux distributions, also called Linux
+ distros.
+ So as you probably know, Linux is open-source software.
+ And for this reason, many individuals and communities have created their own version
+ of Linux called Linux distributions.
+ Each of these distributions is made to fit specialized needs like running servers, desktop
+ computers, mobile phones, and so on.
+ So we have Ubuntu, which is one of the most popular Linux distributions.
+ We also have Debian, Alpine, which we briefly talked about.
+ It's a very small Linux distribution.
+ We also have Fedora, CentOS, and so on.
+ Believe it or not, there are more than 1,000 Linux distributions out there.
+ Now, most of these distributions support pretty much the same set of commands, but sometimes
+ you might discover differences along the way, so be aware of that.
+ In this section, we're going to use Ubuntu Linux because it's one of the most popular
+ distributions.
+ But if you have a preference for another distribution, that's totally fine.
+ All right, let's see how we can run Ubuntu and this machine.
+ From this lesson, I want you to start taking notes.
+ So watch this video, take some notes, and then after the video, repeat the steps I have
+ shown you.
+ Okay?
+ So we go to hop.docker.com and search for Ubuntu.
+ Over here, you can see the official Ubuntu image that's been downloaded more than 10 million
+ times.
+ Let's have a quick look here.
+ So for each image, you can see the command to pull that image onto your machine.
+ Now, in this lesson, I'm not going to use the pool command.
+ I'm going to show you a shortcut.
+ So here in the terminal, instead of running docker pool Ubuntu, I'm going to run docker run
+ Ubuntu.
+ Now, if you have this image locally, docker is going to start a container with this image.
+ Otherwise, it's going to pull this image behind the scene and then start a container.
+ So take a look.
+ So, docker is unable to find this image locally and now is pulling it from docker hop.
+ Now, what happened?
+ Well, docker started a container, but because we didn't interact with this container,
+ the container stopped.
+ Let me prove this to you.
+ So if you run docker.ps, we can see the list of running processes or running containers.
+ Look, we don't have any containers running here, but if you type docker.ps-a for all, we
+ can see the stopped containers as well.
+ Let me increase the size of the window so we can see it clearly.
+ Good.
+ So we have two stopped containers.
+ The first one is using the Ubuntu image.
+ This is the one that we just started and the second one is hello docker, which we started
+ earlier in the course.
+ So to start a container and interact with it, we have to type docker run dash it that
+ is short for interactive.
+ We're going to start a container in the interactive mode.
+ In this container, we're going to load the Ubuntu image, which we have locally.
+ Good.
+ Now, what we have here is called the shell.
+ A shell is a program that takes our commands and passes them to the operating system for
+ execution.
+ Okay.
+ Now, what we have here is called the shell prompt.
+ Let me break it down for you so it doesn't look mysterious.
+ The first part, root represents the currently locked in user.
+ So by default, I'm locked in as the root user, which has the highest privileges.
+ And after the at sign, we have the name of the machine.
+ So this container has this ID, which is automatically generated by docker.
+ And in this case, it's like the name of a machine.
+ Okay.
+ And after the colon, you can see forward slash that represents where we are in the file
+ system.
+ And forward slash represents the root directory.
+ That is the highest directory in the file system.
+ We'll talk about that soon.
+ Then we have a pound.
+ And this means I have the highest privileges.
+ And this I've locked in as the root user.
+ If I locked in as a normal user, instead of a pound, we would see a dollar sign.
+ Okay.
+ So in this shell, we can execute a bunch of commands.
+ For example, we can say echo.
+ Hello.
+ And this prints hello on the terminal.
+ We can also say, who am I?
+ This shows the current user.
+ So this commands that we're running here, this shell program that I told you about takes
+ this command and passes them to the kernel for execution.
+ Now, let me show you something really cool.
+ Let's be type echo dollar sign zero.
+ We can see the location of this shell program.
+ Take a look.
+ So that is forward slash bin slash bash.
+ So bin is a folder or a directory.
+ And inside this directory, we have a program called bash, which is short for born again
+ shell.
+ So apparently, Steve born is the first person who created a shell program.
+ Bash or born again shell is a reference to Steve born.
+ So bash is an enhanced version of the original shell program.
+ Okay.
+ Now one thing you probably noticed is that in Linux, we use a forward slash to separate files
+ and directories.
+ But in Windows, we use a backslash.
+ So that's one of the first differences.
+ The other difference is that Linux is a case sensitive operating system.
+ So if you type echo with a capital E, it's not going to work.
+ Bash tells us echo command not found.
+ So lowercase and uppercase letters are different.
+ And this is not limited to commands.
+ It's applicable everywhere.
+ If you want to reference a file or a directory or a user pretty much anything, we should always
+ spell it properly with the right upper case and lowercase letters.
+ Now one last thing for this lesson using the up and down arrows.
+ We can go through the commands we have executed so far.
+ So this is a pretty useful shortcut you need to know because you don't want to type these
+ commands manually all the time.
+ Okay.
+ Also, using the history command, we can see all the commands we have executed lately.
+ So take a look.
+ So earlier we used who am I.
+ We also used echo and so on.
+ Now we can replay any of these commands by typing an exclamation mark followed by the
+ command number.
+ So if I type two, this is exactly like running who am I.
+ Now is your turn.
+ I want you to pause the video, go through your notes and execute the commands I have shown
+ you in this video.
+ These days, most operating systems and development platforms come with a package manager.
+ You've probably worked with tools like NPM, yarn, pip and so on.
+ Here in Ubuntu, we also have a package manager called apt, which is short for advanced
+ package tool.
+ So let's execute this command.
+ Look, this command has a bunch of sub commands.
+ So using list, we can see the list of packages.
+ We can also search for them.
+ We can show details about the package.
+ We can install, reinstall and remove a package and so on.
+ Now technically, apt is the newer package manager.
+ We also have apt yet, which you see a lot in online tutorials going forward.
+ We're going to use apt because it's easier to work with.
+ So let's say we want to install a package called nano.
+ Nano is a basic text editor for Linux.
+ If you press enter here, we get an error because this image, this Ubuntu image we are
+ running does not have nano.
+ So this is where we use apt to install this package.
+ So if we type apt install nano, we get an error saying unable to locate package nano.
+ Where is this happening?
+ Well, here in Linux, we have the package database and this database might contain hundreds
+ of packages, but not all these packages are installed.
+ So if you want to see all the packages in this database, we type apt list.
+ Look, these are all the packages.
+ Now, in front of these packages, you can see some of them are installed, but not all
+ packages in this database are installed.
+ When we type apt install nano, this command looks at the package database and in this database,
+ it cannot find a package called nano.
+ So this is where we use the update command to update the package database.
+ Now, let me press enter.
+ Then it's going to all these sources like security.ubuntu.com and all these other websites
+ to download the list of packages.
+ So now our package database is updated.
+ So if you run apt list, we see far more packages.
+ And as you can see, most of these packages are not installed because we don't have installed
+ in front of them.
+ So now we can run apt install nano and nano is installed.
+ So here is what you need to take away.
+ Before installing a package, you should always run apt update to update your package database
+ and then you can install a package like nano.
+ Now, we'll talk about nano later in this section.
+ But before going forward, let's make sure that this package is installed properly.
+ So if you type nano, great.
+ So here we have a takes editor, we can type something.
+ Let me resize the window.
+ So down below, you can see the shortcuts.
+ To exit, we have to press control and X.
+ Now it's asking if you want to save the changes, no, so we're going to press N, good.
+ We're back here.
+ We can clear the terminal window by pressing control and L.
+ Okay?
+ So we have installed nano.
+ Now let's say we want to remove it.
+ So we type apt remove nano.
+ Let's ask him for confirmation.
+ Let's go ahead.
+ Great.
+ So nano is gone.
+ If I type nano, we get this error saying no such file or directory.
+ Now here's a little exercise for you.
+ In this image, we don't have Python.
+ So we get an error.
+ So I want you to use apt to install Python in this image, make sure it works and then remove
+ it.
+ So in Linux, just like Windows, our files and directories are organized in a tree in a
+ hierarchical structure.
+ So in Windows, we have a structure like this with C drive on top of the hierarchy.
+ Then below that, we have directories like program files, windows and so on.
+ In Linux, we have the root directory on top of the hierarchy.
+ Below that, we have a bunch of standard directories.
+ For example, we have Ben, which includes binaries or programs.
+ We have boot, which includes all the files related to booting.
+ Then we have dev.
+ The first time I saw this, I thought this is short for development.
+ It's not.
+ It's short for devices.
+ So in Linux, everything is a file, including devices, directories, network socket, pipes
+ and so on.
+ So the files that are needed to access devices are stored in this directory.
+ Then we have Etsy.
+ There are different opinions.
+ What is this short for?
+ But one common opinion is this is short for editable text configuration.
+ This is where we have configuration files.
+ We also have home.
+ This is where home directories for users are stored.
+ So on a machine with multiple users, each user is going to have a home directory here.
+ We also have root, which is the home directory of the root user.
+ Only the root user can access this directory.
+ Then we have lib, which is used for keeping library files like software library dependencies.
+ We have war, which is short for variable.
+ And this is where we have files that are updated frequently, like log files, application
+ data and so on.
+ And finally, we have proc, which includes files that represent running processes.
+ So once again, in Linux, everything is a file.
+ Processes, devices, even directories are files.
+ Now, you don't need to memorize any of these directories.
+ I just listed them here.
+ So as we go through the course, these directories look familiar to you.
+ That's all.
+ Next I'm going to show you how to navigate the file system.
+ And there you will see these directories one more time.
+ Let's see how we can navigate the Linux file system.
+ So the first command we're going to talk about is Pwd, which is short for print working directory.
+ With this, we can see where we are in the file system.
+ So a forward slash represents the root directory.
+ Now to see the files and directories here, we type LS, which is short for list.
+ So we have been, which we talked about earlier, that is short for binaries.
+ This is where we have binary files and programs.
+ We have dev, which includes files for devices.
+ We have boot, which includes boot files, Etsy, which includes configuration files and so on.
+ Now by default, LS lists these items on multiple lines.
+ If you don't like this layout, and want to show one item per line, you need to pass an
+ option.
+ That is dash one.
+ You might prefer this layout.
+ We have another option, dash L, for seeing a long listing.
+ This listing includes more details.
+ So in the first column, we have the permissions of this file or directory.
+ The first time you see this, it might look really scary, but trust me, it's easier than
+ you think.
+ We'll talk about that later in this section.
+ Over here, you can see the user that owns this file or directory.
+ We can see the size.
+ We can see the date and so on.
+ Now to change the current directory, we use the CD command.
+ We have the same command in Windows.
+ Now here we can type a relative or an absolute path.
+ A relative path is relative to where we are.
+ So in this root directory, we have directories like bin, boot and so on.
+ So this is a relative path.
+ Now in contrast, an absolute path always starts from the root directory.
+ So let's go to a directory starting with e.
+ Now we can press tab to get all the completion.
+ Beautiful.
+ Now let's go to a directory starting with a.
+ Now if you press tab, nothing happens because we have multiple directories starting with
+ a.
+ Now we can press tab one more time.
+ Great.
+ So you have three entries, three directories at user.conf, alternatives and app.
+ So let's type the second letter P and then press tab.
+ Beautiful.
+ Now let's see what we have in this directory.
+ So these blue items are directories and sources that list is a file.
+ Now to get out of this directory, we can go one level up by typing two periods.
+ Again, I'm pretty sure you're familiar with this, but I want to cover it to make this
+ section comprehensive.
+ So we can go one level up to get to the Etsy directory or two levels up to get to the
+ root directory.
+ Look, we're currently in the root directory.
+ Now when using LS, we can optionally specify a path.
+ Let's say I'm somewhere in the file system, but I want to look at the content of another
+ directory.
+ I don't want to navigate to that directory.
+ So I'm currently in the root directory.
+ I want to know what files and directories we have inside the bean directory.
+ So once again, we can type a relative path or an absolute path starting from the root
+ directory.
+ So here are the binaries in this directory.
+ Look at PWD.
+ That's the command that we just execute.
+ So PWD is a program in this directory.
+ Here's another example.
+ Look at Echo.
+ So most of the commands we have been exploring so far are programs or binaries in the bin
+ directory.
+ Okay?
+ Now let me show you a shortcut.
+ Earlier I told you that here we have this home directory where each user has a home directory.
+ But the root user has a special home directory called root.
+ Now to get here, there are two options.
+ We can type an absolute or relative path and go to root, but there is a shortcut.
+ So let me get out of this directory.
+ So I'm currently in the root directory.
+ To get to my home directory, I can type a tilde and this applies to all users, not just
+ the root user.
+ Whenever we type CD, tilde, we go to our home directory.
+ Now, right now there is nothing here, but in the next lesson I will show you how to create
+ some files in this directory.
+ So before moving on to the next lesson, I want you to spend a couple of minutes and play
+ with the commands we explored in this lesson.
+ And having it the file system, get adventurous, see what you can discover.
+ I'll see you in the next lesson.
+ Let's see how we can manipulate files and directories.
+ So I'm currently in the root directory and I want to go to my home directory.
+ How can I do that?
+ Do you remember?
+ We type CD, tilde, right?
+ Now in this directory, I want to create a directory called test.
+ So we type MKDurr, test.
+ Let's verify.
+ It's right here.
+ As I told you before, blue represents a directory.
+ Now, let's say we want to rename this directory.
+ How do we do that?
+ We use the move command.
+ With this we can rename files and folders or move them somewhere else.
+ So we can move or rename test to Docker.
+ All right, beautiful.
+ Now let's go in this directory.
+ Not to create a new file, we use the touch command.
+ So we can create hello.txt.
+ Look, we have this new file here.
+ This is a new M to file.
+ In the next lesson, I will show you how to edit files.
+ So for now, don't worry about it.
+ Also, using the touch command, we can create multiple files in one go.
+ So we can create file 1, file 2, and file 3.
+ Now take a look, beautiful.
+ Now I've got a question for you.
+ How do we list those files with a single file per line?
+ Do you remember?
+ We type ls-1.
+ Now let's say we want to rename hello.txt to something else.
+ Once again, we can use the move command.
+ So we type h, press tab to get auto completion.
+ We can rename this to hello-darker.txt.
+ Or we can move it to a different directory.
+ For example, we can move it to the Etsy directory.
+ And here I'm using an absolute path.
+ Because my path has started from the root directory.
+ Now in this lesson, I don't want to move this anywhere.
+ So I just want to rename this to hello-darker.txt.
+ And if you're wondering how I remove this entire word in one go,
+ I press control and w.
+ So let's bring it back.
+ Hello-darker.txt.
+ Take a look.
+ Good.
+ Now let's see how we can remove one or more files.
+ To do that, use the RM command.
+ Like here, we can type one or more files.
+ So we can say file 1.txt, file 2.txt, or we can use a pattern.
+ For example, I can say I want to remove all files that start with file.
+ Let's verify it.
+ Beautiful.
+ We only have hello-darker.
+ Now let's get out of this directory and remove the directory itself.
+ So we type RM, Docker.
+ Now we get an error saying Docker is a directory.
+ So to remove directories, we have to use the R option, which is short for recursive.
+ So we want to remove this directory and all is content recursively.
+ Now we press D, tab, beautiful.
+ So let's verify there is nothing here.
+ So let's quickly recap.
+ We use MKDAR to create a new directory.
+ We use touch to create a new file.
+ We use move to move or rename files or directories.
+ And we use RM to remove files and directories.
+ Now as an exercise, go to your home directory, create a bunch of files and directories,
+ rename them, and then remove them.
+ In the next lesson, I'm going to show you how to view and edit files.
+ Alright, let's see how we can edit and view files.
+ So earlier, we briefly talked about nano.
+ Nano is a basic text editor for Linux.
+ Now on this image that we are running, we don't have nano, so we have to install it.
+ Do you remember the command for installing nano?
+ That is apt install nano.
+ Alright, now we have nano.
+ So we can launch it and optionally supply a file name.
+ Let's say file one, the TXT.
+ So here we have a basic text editor.
+ We can type whatever we want.
+ And when we are done, look down below.
+ The shortcut for exiting is control and x.
+ So I'm going to press that.
+ Now it's asking if you want to save the changes.
+ So we press yes.
+ And here we confirm the file name.
+ We can keep the same file or change the file name.
+ Let's go ahead.
+ So down in this directory, we have file one.txt.
+ Beautiful.
+ Now to see the content of this file, we have a few different commands.
+ The simplest one is cat.
+ And this is nothing to do with cats.
+ It's short for concatenate.
+ So later I will show you how we can use this command to concatenate or combine multiple
+ files.
+ But with cat, we can also see the content of a file.
+ So if you say cat file one.txt, we can see the content of this file.
+ Now cat is useful if our file is short and fits on one page.
+ But if you're dealing with a long file, it's better to use the more command.
+ Let me give you an example.
+ So I'm going to use cat to show the content of this file.
+ Slash Etsy slash adduser.conf.
+ This is a really long file.
+ So if I scroll up, look, we have a lot of text.
+ Now sometimes you don't want to see all the content in one go.
+ You want to scroll down.
+ You want to go page by page.
+ This is where we use the more command.
+ So more slash Etsy slash adduser.conf.
+ Now down below, look, you can see more 15%.
+ So we're seeing 15% of this file.
+ Now if you press space, we can go to the next page.
+ So now we're at the position 33%.
+ Alternatively, we can press enter to go one line at a time.
+ Now the problem with more is that we can only scroll down.
+ We cannot scroll up.
+ So to do that, we have to use a different command called less.
+ So to exit here, we press Q.
+ Good.
+ Now in this image, we don't have less.
+ So once again, we have to manually install it.
+ So apt install less.
+ So less is a newer command that is supposed to replace more.
+ Let's go ahead.
+ Great.
+ So let's look at the same file using the less command.
+ Slash Etsy slash adduser.conf.
+ So now using the up and down arrows,
+ we can scroll down or up.
+ So just by pressing up and down arrows, we also have space.
+ We can go to the next page and enter just like the more command.
+ And when we are done, we can press Q.
+ Now we have a couple more commands for viewing the content of a file.
+ We have head, which we can use to display the first few lines.
+ So here we can supply an option and say the number of lines we want to see is five.
+ Let's look at the same file.
+ So this shows the first five lines of this file.
+ Similarly, we have tail.
+ We chose the last few lines.
+ So we supply an option and say we want to look at the last five files.
+ That's it.
+ So to recap, we can use nano to read something to a file.
+ We can use cat to view the content of small files.
+ Less to view the content of long files in an interactive way.
+ And head and tail to view the first view or the last few lines of a file.
+ One of the important concepts in Linux is the concept of standard input and output.
+ So standard input represents the keyboard and standard output represents the screen.
+ But we can always change the source of the input or the output.
+ This is called redirection.
+ Let me show you using a few examples.
+ So we talked about the cat command to see the content of a file.
+ Let's say file one to TXT.
+ When we execute this command, this command or this program reads data from this file
+ and prints it on the standard output, which is the screen.
+ That is why we see the content here.
+ But using the redirection operator, which is the greater than sign,
+ we can redirect the output from the screen to, let's say, a different file.
+ So now cat will read the content from this file and write it to this file.
+ Take a look.
+ So we have file to the TXT.
+ If we view it, we see the exact same content as file one.
+ Okay.
+ Now what is the point of this?
+ Well, earlier, I told you that we can use the cat command to concatenate or combine multiple files.
+ So here we can say cat file one to TXT and file to the TXT.
+ If we present her, cat is going to read the data from both these files and printed on the terminal,
+ which is the standard output.
+ But once again, using the redirection operator, we can write the result to a different file.
+ Combined the TXT.
+ So this is how we can use this command to combine multiple files.
+ Now, the redirection operator is not limited to the cat command.
+ We can use it pretty much anywhere.
+ For example, earlier we talked about the echo command.
+ If we say echo, hello,
+ we see the result on the terminal.
+ But if we say echo, hello, to hello.txt.
+ Now we have a new file here, hello.txt, which contains hello.
+ So if you want to write a single line to a file, we don't have to use nano.
+ We can use the echo command.
+ So echo whatever to whatever file the TXT.
+ Okay.
+ Now here's a little exercise for you.
+ I want you to get a long listing of the files in the Etsy directory
+ and write the output to a file.
+ So pause the video and work on this for a few seconds.
+ So here's the solution.
+ To get a long listing, we type ls-l,
+ then we specify the path, the Etsy directory.
+ Now, instead of printing the result on the terminal,
+ we're going to write it to a file called files.txt.
+ Okay.
+ Now let's view this file.
+ Perfect.
+ Now one more thing before we finish this lesson.
+ Using the greater an unsigned, we can redirect the standard output,
+ but we also have the less than sign to redirect the standard input.
+ I personally haven't found many use cases for this,
+ so I didn't cover it in this lesson.
+ All right, that's all about redirection.
+ Next, we're going to talk about searching for text and files.
+ Hey guys, Moch here.
+ If you're serious about learning Docker,
+ I actually have a complete Docker course
+ on my coding school code with Moch.com.
+ This tutorial you've been watching
+ is a cut down version of the complete course.
+ In the full course, you will learn how to run and deploy
+ a full stack application with a front end, back end,
+ and a database.
+ Our application also includes automated tests,
+ so it's a great real-world scenario for learning Docker.
+ Just like my other courses, you will also receive a 30-day
+ money-back guarantee and a certificate of completion
+ you can add to your resume.
+ In case you're interested, you can find the link down below
+ in the description box.
+
+
+
+
+new.bolt
+cursor
+v0
+wind.surf

@@ -1,0 +1,1011 @@
+[0.00s - 3.92s]:  Welcome to the Ultimate Docker course.
+[3.92s - 7.20s]:  In this course, I'm going to take you on a journey and teach you everything you need
+[7.20s - 10.60s]:  to know about Docker from the basics to my advanced concepts.
+[10.60s - 14.64s]:  So by the end of this course, you'll be able to use it like a pro as part of your software
+[14.64s - 16.16s]:  Devonement workflow.
+[16.16s - 20.50s]:  If you're looking for a comprehensive and highly practical course that takes you from 0 to
+[20.50s - 22.40s]:  0, this is the Docker course for you.
+[22.40s - 26.60s]:  We're going to start off with a really simple project so you understand the basics.
+[26.60s - 31.16s]:  Then we'll use Docker, run and deploy a full stack application with a front end, back
+[31.16s - 32.68s]:  end and a database.
+[32.68s - 36.72s]:  So you learn all the necessary techniques and apply them to your own projects.
+[36.72s - 40.96s]:  I'm Mosh Hamadani and I've taught millions of people how to advance their software engineering
+[40.96s - 45.24s]:  skills through my YouTube channel and online school code with mosh.com.
+[45.24s - 49.64s]:  If you're new here, be sure to subscribe as you upload new videos all the time.
+[49.64s - 51.28s]:  Now let's jump in and get started.
+[56.60s - 65.40s]:  Let's quickly talk about what you need to know to take this course.
+[65.40s - 68.80s]:  To take this course, you don't need any prior knowledge of Docker because I'm going to
+[68.80s - 72.48s]:  teach you everything from scratch, but you should have at least three months of program
+[72.48s - 73.48s]:  and experience.
+[73.48s - 77.52s]:  Ideally, you should have built at least one application so you should know concepts like
+[77.52s - 80.80s]:  front end, back end, API and database.
+[80.80s - 84.72s]:  It doesn't matter what language is and frameworks or what database engines you're familiar
+[84.72s - 88.16s]:  with, but you should know what these concepts are all about.
+[88.16s - 93.00s]:  Also you should be familiar with basic Git commands like clothing and GitHub repository,
+[93.00s - 95.20s]:  committing code, pushing and pulling.
+[95.20s - 97.16s]:  Just the basics, nothing more.
+[97.16s - 101.96s]:  With all that, let's move on to the next lesson.
+[101.96s - 108.76s]:  Now, we all have different ways of learning things, but let me tell you what I think is
+[108.76s - 111.04s]:  the best way to take this course.
+[111.04s - 115.48s]:  This course is highly practical, so you should be active while watching this course.
+[115.48s - 119.44s]:  In my opinion, it's best if you watch each lesson, take some notes.
+[119.44s - 124.16s]:  You can either take notes on a piece of paper or using your favorite note taken tool.
+[124.16s - 128.52s]:  Just write some keywords, some keywords that help you remember what we talked about.
+[128.52s - 133.48s]:  Then after each lesson, go through your notes and repeat the same steps I've taken in that
+[133.48s - 134.48s]:  lesson.
+[134.48s - 137.92s]:  So if I talked about a bunch of commands, play with those commands, make sure you understand
+[137.92s - 139.16s]:  how they work.
+[139.16s - 143.00s]:  If you follow that, I promise you, by the end of this course, you're going to master
+[143.00s - 146.16s]:  Docker and use it like a pro.
+[146.16s - 151.56s]:  All right, our journey to master Docker begins here.
+[151.56s - 155.44s]:  In every section, you're going to discover something new about Docker.
+[155.44s - 159.72s]:  In this section, we're going to talk about what Docker is and why it's so popular.
+[159.72s - 162.28s]:  Then we're going to talk about virtual machines and containers.
+[162.28s - 166.88s]:  Next, we're going to talk about the architecture of Docker, so you understand how it works.
+[167.28s - 170.20s]:  Then we're going to install Docker and get our hands dirty.
+[170.20s - 173.88s]:  I'm going to give you an overview of your development workflow with Docker.
+[173.88s - 177.44s]:  And then we're going to see that in action using a really simple example.
+[177.44s - 181.28s]:  So by the end of this section, you will have an idea of what Docker is all about.
+[181.28s - 182.64s]:  I'm so excited about this section.
+[182.64s - 183.64s]:  I hope you are too.
+[183.64s - 185.64s]:  So let's jump in and get started.
+[185.64s - 199.80s]:  So what is Docker and what is everyone using it these days?
+[199.80s - 205.20s]:  Well, Docker is a platform for building, running and shipping applications in a consistent
+[205.20s - 206.20s]:  manner.
+[206.20s - 209.64s]:  So if your application works on your development machine, it can run and function the
+[209.64s - 211.76s]:  same way on other machines.
+[211.76s - 215.60s]:  If you have been developing software for a while, you've probably come across this situation
+[215.60s - 220.32s]:  where your application works on your development machine, but doesn't somewhere else.
+[220.32s - 222.56s]:  Can you think of three reasons why this happens?
+[222.56s - 227.72s]:  Well, this can happen if one or more files are not included as part of your deployment.
+[227.72s - 230.36s]:  So your application is not completely deployed.
+[230.36s - 231.88s]:  It's missing something.
+[231.88s - 236.52s]:  This can also happen if the target machine is running a different version of some software
+[236.52s - 238.20s]:  that your application needs.
+[238.20s - 242.40s]:  Let's say your application needs node version 14, but the target machine is running node
+[242.40s - 243.56s]:  version 9.
+[243.56s - 248.56s]:  This can also happen if the configuration settings like environment variables are different across
+[248.56s - 249.80s]:  these machines.
+[249.80s - 253.00s]:  And this is where Docker comes to the rescue with Docker.
+[253.00s - 257.44s]:  We can easily package up our application with everything it needs and run it anywhere
+[257.44s - 259.48s]:  on any machine with Docker.
+[259.48s - 264.36s]:  So if your application needs a given version of node and MongoDB, all of these will be included
+[264.36s - 265.96s]:  in your application's package.
+[266.12s - 270.36s]:  Now, we can take this package and run it on any machine that runs Docker.
+[270.36s - 273.96s]:  So if it works on your development machine, it's definitely going to work on your test
+[273.96s - 275.36s]:  and production machines.
+[275.36s - 276.96s]:  Now, there's more.
+[276.96s - 281.16s]:  If someone joins your team, they don't have to spend half a day or so setting up a new
+[281.16s - 283.04s]:  machine to run your application.
+[283.04s - 286.16s]:  They don't have to install and configure all these dependencies.
+[286.16s - 291.36s]:  They simply tell Docker to bring up your application and Docker itself will automatically download
+[291.36s - 296.44s]:  and run these dependencies inside an isolated environment called a container.
+[296.44s - 298.28s]:  And this is the beauty of Docker.
+[298.28s - 303.48s]:  This isolated environment allows multiple applications use different versions of some software
+[303.48s - 304.92s]:  side by side.
+[304.92s - 307.88s]:  So one application may use node version 14.
+[307.88s - 310.40s]:  Another application may use node version 9.
+[310.40s - 314.48s]:  Both these applications can run side by side on the same machine without messing with
+[314.48s - 315.48s]:  each other.
+[315.48s - 320.08s]:  So this is how Docker allows us to consistently run an application on different machines.
+[320.48s - 322.36s]:  Now, there's one more benefit here.
+[322.36s - 326.48s]:  When we're done with this application and don't want to work on it anymore, we can remove
+[326.48s - 329.92s]:  the application and all these dependencies in one go.
+[329.92s - 334.40s]:  Without Docker, as we work on different projects, our development machine gets cluttered with
+[334.40s - 338.00s]:  so many libraries and tools that are used by different applications.
+[338.00s - 342.08s]:  And then after a while, we don't know if we can remove one or more of these tools because
+[342.08s - 345.40s]:  we're always afraid that we would mess up with some application.
+[345.40s - 348.04s]:  With Docker, we don't have to worry about this.
+[348.04s - 353.16s]:  Because each application runs with its dependencies inside an isolated environment, we can save
+[353.16s - 356.88s]:  the removal of an application with all these dependencies to clean up our machine.
+[356.88s - 358.20s]:  Isn't that great?
+[358.20s - 364.28s]:  So in a nutshell, Docker helps us consistently build, run, and ship our applications.
+[364.28s - 369.00s]:  And that's why a lot of employers are looking for people with Docker skills these days.
+[369.00s - 373.44s]:  So if you're pursuing a job as a software or DevOps engineer, I highly encourage you
+[373.44s - 375.76s]:  to learn Docker and learn it well.
+[375.76s - 378.00s]:  And that's exactly what this course is all about.
+[378.04s - 381.84s]:  I'm going to take you on a journey and teach you everything you need to know about Docker
+[381.84s - 383.36s]:  so you can use it like a pro.
+[383.36s - 385.00s]:  No copy-pasting commands here.
+[391.28s - 394.36s]:  So in the last lesson, I briefly talked about containers.
+[394.36s - 398.16s]:  A container is an isolated environment for running an application.
+[398.16s - 402.40s]:  Now one of the questions that often comes up is how are containers different from virtual
+[402.40s - 404.24s]:  machines or VMs?
+[404.24s - 405.40s]:  Do you know the differences?
+[405.92s - 411.40s]:  A virtual machine, as the name implies, is an abstraction of a machine or physical hardware.
+[411.40s - 415.32s]:  So we can run several virtual machines on a real physical machine.
+[415.32s - 419.88s]:  For example, we can have a Mac and on this Mac, we can run two virtual machines, one
+[419.88s - 422.40s]:  running Windows, the other running Linux.
+[422.40s - 423.64s]:  How do we do that?
+[423.64s - 425.16s]:  Using a tool called Hypervisor.
+[425.16s - 427.92s]:  I know, it's one of those computer science names.
+[427.92s - 433.56s]:  In simple terms, a hypervisor is software we use to create and manage virtual machines.
+[433.56s - 437.88s]:  There are many hypervisors available out there like virtual box and VMware, which are
+[437.88s - 443.36s]:  cross-platform so they can run on Windows, Mac OS and Linux, and Hyper-V, which is only
+[443.36s - 444.56s]:  for Windows.
+[444.56s - 447.92s]:  So with a hypervisor, we can manage virtual machines.
+[447.92s - 450.32s]:  Now what is the benefit of building virtual machines?
+[450.32s - 455.84s]:  Well, for us software developers, we can run an application in isolation inside a virtual
+[455.84s - 456.84s]:  machine.
+[456.84s - 461.52s]:  So on the same physical machine, we can have two different virtual machines, each running
+[461.52s - 466.20s]:  a completely different application and each application has the exact dependencies it
+[466.20s - 467.20s]:  needs.
+[467.20s - 472.72s]:  So application one may use node version 14 and MongoDB version 4, while application two
+[472.72s - 476.64s]:  may use node version 9 and MongoDB version 3.
+[476.64s - 481.44s]:  All these are running on the same machine, but in different isolated environments.
+[481.44s - 485.24s]:  That's one of the benefits of virtual machines, but there are a number of problems with this
+[485.24s - 486.24s]:  model.
+[486.24s - 490.48s]:  Each virtual machine needs a full copy of an operating system that needs to be licensed,
+[490.48s - 492.20s]:  attached and monitored.
+[492.20s - 496.40s]:  And that's why these virtual machines are slow to start because the entire operating system
+[496.40s - 500.04s]:  has to be loaded just like starting your computer.
+[500.04s - 503.96s]:  Another problem is that these virtual machines are resource intensive because each virtual
+[503.96s - 510.20s]:  machine takes a slice of the actual physical hardware resources like CPU, memory and disk
+[510.20s - 511.20s]:  space.
+[511.20s - 515.52s]:  So if you have eight gigabytes of memory, that memory has to be divided between different
+[515.52s - 516.68s]:  virtual machines.
+[516.68s - 521.00s]:  Of course, we can decide how much memory to allocate to each virtual machine, but at the
+[521.00s - 525.84s]:  end of the day, we have a limit in terms of the number of VMs we can run on a machine.
+[525.84s - 529.04s]:  Usually a handful otherwise we're going to run out of hardware resources.
+[529.04s - 531.60s]:  Now let's talk about containers.
+[531.60s - 536.92s]:  Containers give us the same kind of isolation, so we can run multiple applications in isolation,
+[536.92s - 538.44s]:  but they're more lightweight.
+[538.44s - 540.44s]:  They don't need a full operating system.
+[540.44s - 545.56s]:  In fact, all containers on a single machine share the operating system of the host.
+[545.56s - 551.08s]:  So that means we need to license, patch and monitor a single operating system.
+[551.08s - 555.80s]:  Also because the operating system has already started on the host, a container can start
+[555.80s - 559.40s]:  up pretty quickly, usually in a second, sometimes less.
+[559.40s - 564.32s]:  And also, these containers don't need a slice of the hardware resources on the host.
+[564.32s - 569.12s]:  So we don't need to give them a specific number of CPU cores or a slice of memory or disk
+[569.12s - 570.12s]:  space.
+[570.12s - 575.80s]:  So at a single host, we can run tens or even hundreds of containers side by side.
+[575.80s - 579.20s]:  So these are the differences between containers and virtual machines.
+[579.20s - 589.56s]:  Let's talk about the architecture of Docker, so you understand how it works.
+[589.56s - 594.04s]:  Docker uses a client server architecture, so it has a client component that talks to a
+[594.04s - 597.16s]:  server component using a RESTful API.
+[597.16s - 602.52s]:  The server also called the Docker engine sits on the background and takes care of building
+[602.52s - 604.64s]:  and running Docker containers.
+[604.64s - 609.92s]:  Technically, a container is just a process, like other processes running on your computer,
+[609.92s - 613.04s]:  but it's a special kind of process which we're going to talk about soon.
+[613.04s - 618.48s]:  Now, as I told you, unlike virtual machines, containers don't contain a full blown operating
+[618.48s - 619.80s]:  system.
+[619.80s - 624.32s]:  Instead, all containers on a host share the operating system of the host.
+[624.32s - 628.88s]:  But more accurately, all those containers share the kernel of the host.
+[628.88s - 629.88s]:  What's a kernel?
+[629.88s - 632.04s]:  A kernel is the core of an operating system.
+[632.04s - 634.00s]:  It's like the engine of a car.
+[634.00s - 638.56s]:  It's the part that manages all applications as well as hardware resources like memory and
+[638.56s - 639.64s]:  CPU.
+[639.64s - 643.92s]:  Every operating system has its own kernel or engine, and these kernels have different
+[643.92s - 644.92s]:  APIs.
+[644.92s - 650.56s]:  That's why we cannot run a Windows application on Linux because under the hood, this application
+[650.56s - 654.28s]:  is to talk to the kernel of the underlying operating system.
+[654.28s - 655.28s]:  OK?
+[655.28s - 660.44s]:  So, that means on a Linux machine, we can only run Linux containers because these containers
+[660.44s - 661.68s]:  need Linux.
+[661.68s - 666.48s]:  On a Windows machine, however, we can run both Windows and Linux containers because Windows
+[666.48s - 670.32s]:  10 is now shipped with a custom built Linux kernel.
+[670.32s - 673.88s]:  This is in addition to the Windows kernel that's always been in Windows.
+[673.88s - 675.36s]:  It's not a replacement.
+[675.36s - 680.24s]:  So with this Linux kernel, now we can run Linux applications natively on Windows.
+[680.24s - 684.12s]:  So on Windows, we can run both Linux and Windows containers.
+[684.12s - 689.40s]:  Our Windows containers share the Windows kernel and our Linux containers share the Linux
+[689.40s - 690.40s]:  kernel.
+[690.40s - 691.40s]:  OK?
+[691.40s - 692.40s]:  Now, what about Mac OS?
+[692.40s - 697.48s]:  Well, Mac OS has its own kernel, which is different from Linux and Windows kernels,
+[697.48s - 702.36s]:  and this kernel does not have native support for containers applications.
+[702.36s - 707.84s]:  So the darker on Mac uses a lightweight Linux virtual machine to run Linux containers.
+[707.84s - 708.84s]:  All right.
+[708.84s - 709.84s]:  Now, let's talk about architecture.
+[709.84s - 715.84s]:  Next, we're going to install Docker, and that's where the fun begins.
+[715.84s - 719.84s]:  All right.
+[719.84s - 722.32s]:  Now let's install the latest version of Docker.
+[722.32s - 725.68s]:  If you have an existing version of Docker on your machine, I highly encourage you to
+[725.68s - 730.20s]:  upgrade to the latest version because your version might be old and not compatible with
+[730.20s - 732.36s]:  the version I'm using in this course.
+[732.36s - 738.16s]:  So here I'm using Docker version 20.10.5.
+[738.16s - 739.16s]:  OK?
+[739.16s - 746.64s]:  So to get Docker, go to this page docs.docker.com slash get Docker, or you can just Google get
+[746.64s - 748.72s]:  Docker or install Docker.
+[748.72s - 753.00s]:  Now on this page, we can see instructions for downloading and installing Docker desktop
+[753.00s - 757.52s]:  for Mac and Windows, as well as Docker Engine for Linux.
+[757.52s - 761.96s]:  So on Mac and Windows, we have Docker desktop, which is the combination of Docker Engine
+[761.96s - 763.68s]:  plus a bunch of other tools.
+[763.68s - 767.12s]:  At the time of recording this, we don't have Docker desktop for Linux.
+[767.12s - 771.16s]:  We only have the Docker Engine, but of course that might change in the future.
+[771.16s - 775.44s]:  So a couple of notes for my Mac and Windows users.
+[775.44s - 777.12s]:  Let's go through this page.
+[777.12s - 780.96s]:  So over here, you can download the latest version from Docker Hub.
+[780.96s - 785.20s]:  But before doing this, I highly encourage you to go through a system requirements and make
+[785.20s - 788.40s]:  sure your computer satisfies these requirements.
+[788.40s - 791.00s]:  Otherwise, you might encounter weird issues.
+[791.00s - 793.52s]:  So the installation is pretty straightforward.
+[793.52s - 797.16s]:  When you go to this page, you're going to download a DMG file.
+[797.16s - 801.16s]:  Just drag and drop this onto the application folder and then start it.
+[801.16s - 802.16s]:  This is very important.
+[802.16s - 804.04s]:  A lot of people miss that step.
+[804.04s - 809.00s]:  So when you start Docker Engine by double clicking on this application, you're going to
+[809.00s - 812.40s]:  see the Docker icon on the top status bar.
+[812.40s - 816.12s]:  If you don't see this, Docker Engine is not running and there is nothing you can do.
+[816.12s - 818.28s]:  So you have to wait for this to start.
+[818.28s - 820.36s]:  The same applies to my Windows users.
+[820.36s - 823.76s]:  So back to this page.
+[823.76s - 826.52s]:  Let's look at the instructions for Windows.
+[826.52s - 830.52s]:  So once again, you can download the latest version from Docker Hub.
+[830.52s - 833.28s]:  But once again, make sure to read system requirements.
+[833.28s - 838.60s]:  One of the things that is really important is enabling Hyper-V and Container's Windows
+[838.60s - 839.60s]:  features.
+[839.60s - 843.28s]:  So I don't have a Windows machine to show you here, but just go to the page where you
+[843.28s - 845.84s]:  can turn on or turn off Windows features.
+[845.84s - 850.00s]:  There, make sure you have enabled Hyper-V and Containers.
+[850.00s - 853.16s]:  It's pretty straightforward, but if you can't find it, just google it.
+[853.16s - 856.08s]:  I'm pretty sure there are tons of articles out there.
+[856.08s - 861.56s]:  Also at the end of the installation, you might get an error saying WS2 installation is incomplete.
+[861.56s - 865.96s]:  Basically, what this error is saying is that you need to upgrade the Linux kernel that
+[865.96s - 867.60s]:  is shipped with your Windows.
+[867.60s - 869.92s]:  So just click on this link.
+[869.92s - 874.04s]:  This is going to take you to this page on Microsoft.com where you can download the latest Linux
+[874.04s - 875.04s]:  kernel.
+[875.04s - 879.64s]:  So just click on this link to get an MSI file, run it, and then you have to restart your
+[879.64s - 880.64s]:  computer.
+[880.64s - 885.28s]:  Now, once your computer is re-started, you need to wait a little while until Docker Engine
+[885.28s - 886.28s]:  started.
+[886.28s - 890.72s]:  Depending on your machine, this might take several seconds or up to a minute.
+[890.72s - 897.12s]:  So wait a little while, then open up a terminal window and run Docker version.
+[897.12s - 902.80s]:  So over here, you can see the version of the client and the server.
+[902.80s - 906.76s]:  If the server, which is Docker Engine, is not running, you are not going to see this
+[906.76s - 907.76s]:  information.
+[907.76s - 912.40s]:  And this applies to all operating systems, Windows, Mac OS, and Linux.
+[912.40s - 915.80s]:  So make sure Docker Engine is running before going forward.
+[915.80s - 921.56s]:  If you encounter any errors, you can post your question on our forum at forum.co.wetmosh.com
+[921.56s - 925.76s]:  or if you want a faster response, just google the error message and pretty sure hundreds
+[925.76s - 934.76s]:  of people have encountered the same problem as you.
+[934.76s - 938.04s]:  Now let's talk about your development workflow when using Docker.
+[938.04s - 940.28s]:  So to start off, we take an application.
+[940.28s - 943.84s]:  It doesn't matter what kind of application it is or how it's built.
+[943.84s - 948.52s]:  We take that application and Dockerize it, which means we make a small change so that
+[948.52s - 950.40s]:  it can be run by Docker.
+[950.40s - 951.40s]:  How?
+[951.40s - 952.88s]:  We just add a Docker file to it.
+[952.88s - 958.08s]:  A Docker file is a plain text file that includes instructions that Docker uses to package
+[958.08s - 960.40s]:  of this application into an image.
+[960.40s - 963.96s]:  This image contains everything our application needs to run.
+[963.96s - 969.80s]:  Typically, it cut down operating system, a runtime environment like Node or Python.
+[969.80s - 974.44s]:  It also contains application files, third party libraries, environment variables, and so
+[974.44s - 975.44s]:  on.
+[975.44s - 979.56s]:  So we create a Docker file and give it to Docker for packaging our application into an
+[979.56s - 980.56s]:  image.
+[980.56s - 985.04s]:  Once we have an image, we tell Docker to start a container using that image.
+[985.04s - 988.16s]:  So a container as I told you is just a process.
+[988.16s - 992.48s]:  But it's a special kind of process because it has its own file system which is provided
+[992.48s - 993.68s]:  by the image.
+[993.68s - 999.00s]:  So our application gets loaded inside a container or a process and this is how we run our application
+[999.00s - 1001.40s]:  locally on our development machine.
+[1001.40s - 1006.68s]:  So instead of directly launching the application and running it inside a typical process, we
+[1006.68s - 1011.52s]:  tell Docker to run it inside a container, an isolated environment.
+[1011.52s - 1013.28s]:  Now here's the beauty of Docker.
+[1013.28s - 1017.64s]:  Once we have this image, we can push it to a Docker registry like Docker Hub.
+[1017.64s - 1020.16s]:  Docker Hub to Docker is like GitHub to Git.
+[1020.16s - 1023.40s]:  It's a storage for Docker images that anyone can use.
+[1023.40s - 1027.44s]:  So once our application image is on Docker Hub, then we can put it on any machines running
+[1027.44s - 1028.44s]:  Docker.
+[1028.44s - 1033.32s]:  This machine has the same image we have on our development machine, which contains a specific
+[1033.32s - 1036.36s]:  version of our application with everything it needs.
+[1036.36s - 1040.64s]:  So we can start our application the same way we started it on our development machine.
+[1040.64s - 1044.08s]:  We just tell Docker to start a container using this image.
+[1044.08s - 1049.12s]:  So with Docker, we no longer need to maintain long, complex, released documents that have
+[1049.12s - 1051.16s]:  to be precisely followed.
+[1051.16s - 1055.76s]:  All the instructions for building an image of an application are written in a Docker file.
+[1055.76s - 1060.40s]:  With that, we can package our application into an image and run it virtually anywhere.
+[1060.40s - 1061.68s]:  This is the beauty of Docker.
+[1061.68s - 1071.24s]:  Next, we're going to see this workflow in action.
+[1071.24s - 1074.72s]:  In this lesson, I'm going to walk you through a typical development workflow that don't
+[1074.72s - 1078.92s]:  try to memorize anything in this lesson because I just want you to see the big picture.
+[1078.92s - 1083.32s]:  So everything I show you in this lesson, we're going to cover in depth later in the course.
+[1083.32s - 1086.68s]:  So here in this terminal window, I'm currently on my desktop.
+[1086.68s - 1093.28s]:  I'm going to create a new directory called HelloDocker, then go inside this directory and
+[1093.28s - 1096.96s]:  open it in Visual Studio Code.
+[1096.96s - 1101.28s]:  So I'm going to use VS Code as my editor, but you can use any editor that you prefer.
+[1101.28s - 1102.28s]:  Okay.
+[1102.28s - 1106.36s]:  Now in this directory, I'm going to add a new file called app.js.
+[1107.36s - 1109.48s]:  You're going to write one line of JavaScript code.
+[1109.48s - 1111.28s]:  You don't have to be a JavaScript developer.
+[1111.28s - 1113.20s]:  You don't even need to learn JavaScript.
+[1113.20s - 1115.24s]:  So just follow along with me.
+[1115.24s - 1119.64s]:  So here we're going to write console in lowercase.log.
+[1119.64s - 1122.12s]:  Hello Docker.
+[1122.12s - 1124.72s]:  So with this, we're going to print a message on the terminal.
+[1124.72s - 1128.48s]:  Let's say this is an application and we want to dockerize this application.
+[1128.48s - 1131.64s]:  So we want to build, run and ship it using Docker.
+[1131.64s - 1136.12s]:  So typically without Docker, if you want to ship this application or more accurate than
+[1136.12s - 1140.88s]:  this program to a different computer, on that computer, we need to install node.
+[1140.88s - 1145.16s]:  And then we can go to the terminal and type nodeapp.js.
+[1145.16s - 1146.56s]:  So we get the output.
+[1146.56s - 1148.84s]:  So here are the instructions for deploying this program.
+[1148.84s - 1151.20s]:  We need to start with an operating system.
+[1151.20s - 1156.08s]:  Then we need to install node, which is an execution environment for JavaScript code.
+[1156.08s - 1161.60s]:  Next we need to copy our application files and finally we need to run nodeapp.js.
+[1161.60s - 1165.24s]:  So we have to follow four steps just for a simple program.
+[1165.24s - 1169.24s]:  And if you were working with a really complex application, you would end up with a complex
+[1169.24s - 1172.40s]:  release document that had to be precisely followed.
+[1172.40s - 1175.00s]:  Now this is where Docker comes to the rescue.
+[1175.00s - 1181.92s]:  We can write these instructions inside a Docker file and let Docker package our application.
+[1181.92s - 1187.80s]:  So back to VS code, we're going to add another file to this project called Docker file.
+[1187.80s - 1191.12s]:  So capital D and all the other letters are lowercase.
+[1191.12s - 1193.56s]:  And this file doesn't have any extensions.
+[1193.56s - 1194.56s]:  Okay.
+[1194.56s - 1199.44s]:  Now VS code is asking if you want to install the recommended extensions for Docker, we
+[1199.44s - 1201.68s]:  can go ahead with that.
+[1201.68s - 1203.36s]:  Good.
+[1203.36s - 1208.04s]:  So back to this Docker file, here we write instructions for package our application.
+[1208.04s - 1211.08s]:  So typically we start from a base image.
+[1211.08s - 1215.24s]:  This base image as a bunch of files, we're going to take those files and add additional
+[1215.24s - 1216.40s]:  files to it.
+[1216.40s - 1218.84s]:  This is kind of like inheritance in programming.
+[1218.84s - 1219.84s]:  Okay.
+[1219.84s - 1220.84s]:  So what is the base image?
+[1220.84s - 1226.24s]:  Well, we can start from a Linux image and then install node on top of it.
+[1226.24s - 1229.08s]:  Or we can start from a node image.
+[1229.08s - 1231.92s]:  This image is already built on top of Linux.
+[1231.92s - 1233.28s]:  Now how do I know these names?
+[1233.28s - 1238.24s]:  Well, these images are officially published on Docker Hub.
+[1238.24s - 1243.40s]:  So if you go to hub.docker.com and search for node, you can see the official node image
+[1243.40s - 1244.40s]:  here.
+[1244.40s - 1248.20s]:  So Docker Hub is a registry for Docker images.
+[1248.20s - 1249.80s]:  Now back to a Docker file.
+[1249.80s - 1251.56s]:  So we start from a node image.
+[1251.56s - 1256.00s]:  Now if you look at Docker Hub, you will see that there are multiple node images.
+[1256.00s - 1260.28s]:  These node images are built on top of different distributions of Linux.
+[1260.28s - 1265.56s]:  So Linux has different distributions or different flavors used for different purposes.
+[1265.56s - 1270.84s]:  Now here we can specify a tag using a colon to specify which Linux distribution we want
+[1270.84s - 1272.36s]:  to use for this demo.
+[1272.36s - 1276.44s]:  I'm going to use Alpine, which is a very small Linux distribution.
+[1276.44s - 1280.64s]:  So the size of the image that we're going to download and build on top of is going
+[1280.64s - 1282.76s]:  to be very small.
+[1282.76s - 1284.52s]:  So we start from that image.
+[1284.52s - 1287.88s]:  Then we need to copy our application or program files.
+[1287.88s - 1290.92s]:  For that we use the copy instruction or copy command.
+[1290.92s - 1296.44s]:  We're going to copy all the files in the current directory into the app directory into
+[1296.44s - 1297.44s]:  that image.
+[1297.44s - 1302.00s]:  So that image has a file system and in that file system we're going to create a directory
+[1302.00s - 1303.00s]:  called app.
+[1303.00s - 1304.00s]:  Okay.
+[1304.00s - 1309.44s]:  Now finally we're going to use the command instruction to execute the command.
+[1309.44s - 1311.52s]:  What command should we execute here?
+[1311.52s - 1313.96s]:  Node app.js.
+[1313.96s - 1316.68s]:  But this file is inside the app directory.
+[1316.68s - 1320.60s]:  So we have to prefix it with a directory name.
+[1320.60s - 1327.76s]:  Alternatively here we could set the current working directory work dir to slash app.
+[1327.76s - 1331.68s]:  And then we don't need to prefix this with the directory name.
+[1331.68s - 1335.80s]:  So when we use this instruction all the following instructions assume that we're currently
+[1335.80s - 1337.76s]:  inside the app directory.
+[1337.76s - 1338.76s]:  Okay.
+[1338.76s - 1344.12s]:  So these instructions clearly document our deployment process.
+[1344.12s - 1348.68s]:  Now we go to the terminal and tell Docker to package up our application.
+[1348.68s - 1351.44s]:  So we say Docker build.
+[1351.44s - 1354.56s]:  We need to give our image a tag, a tag to identify.
+[1354.56s - 1360.04s]:  So dash t here we specify a name like hello Docker.
+[1360.04s - 1364.00s]:  And then we need to specify where Docker can find a Docker file.
+[1364.00s - 1369.00s]:  So we're currently inside hello Docker directory and our Docker file is right here.
+[1369.00s - 1372.84s]:  So we use a period to reference the current directory.
+[1372.84s - 1375.12s]:  Let's go with that.
+[1375.12s - 1379.16s]:  Now you might be expecting an image file inside the current directory.
+[1379.16s - 1383.72s]:  But back in VS code look there is nothing here because the image is not stored here.
+[1383.72s - 1386.44s]:  And in fact an image is not a single file.
+[1386.44s - 1390.00s]:  How Docker stores this image is very complex and we don't have to worry about it.
+[1390.36s - 1394.12s]:  So back to the terminal to see all the images on this computer.
+[1394.12s - 1400.72s]:  We type Docker images or Docker image LS which is short for less.
+[1400.72s - 1403.40s]:  So take a look on this machine.
+[1403.40s - 1407.88s]:  We have a repository called hello Docker in this repository.
+[1407.88s - 1410.40s]:  We have an image with this tag latest.
+[1410.40s - 1412.24s]:  So Docker added this by default.
+[1412.24s - 1413.84s]:  We'll talk about this later in the course.
+[1413.84s - 1417.16s]:  But basically we use these tags for versioning our images.
+[1417.16s - 1420.92s]:  So each image can contain a different version of our application.
+[1420.92s - 1421.84s]:  OK.
+[1421.84s - 1425.68s]:  Now each image also has a unique identifier.
+[1425.68s - 1429.84s]:  Here we can see when the image was created and the size of this image.
+[1429.84s - 1437.28s]:  So because we used node from Linux Alpine we ended up with 112 megabytes of data in this image.
+[1437.28s - 1441.96s]:  So this image contains Alpine Linux node and our application files.
+[1441.96s - 1445.16s]:  And the total size is 112 megabytes.
+[1445.16s - 1450.00s]:  If we used a different node image that was based on a different distribution of Linux,
+[1450.00s - 1451.84s]:  we would end up with a larger image.
+[1451.84s - 1456.40s]:  And then when deploying that image, we would have to transfer that image from one computer to another.
+[1456.40s - 1459.88s]:  So that's why we use node Alpine because this is a very small image.
+[1459.88s - 1460.68s]:  OK.
+[1460.68s - 1462.12s]:  So we built this image.
+[1462.12s - 1465.56s]:  Now we can run this image on any computer running Docker.
+[1465.56s - 1472.00s]:  So on this machine, which is my development machine, I can say Docker run and then type the image name.
+[1472.00s - 1473.32s]:  Hello, Docker.
+[1473.32s - 1479.32s]:  And it doesn't matter which directory I'm in because this image contains all the files for running our application.
+[1479.32s - 1483.04s]:  Now look, we see the message on the terminal.
+[1483.04s - 1486.08s]:  Now I can go ahead and publish this image to Docker Hub.
+[1486.08s - 1487.72s]:  So anyone can use this image.
+[1487.72s - 1493.16s]:  Then I can go on another machine like a test or a production machine and pull and run this image.
+[1493.16s - 1496.32s]:  In fact, I've done this before recording this video.
+[1496.32s - 1497.76s]:  So back to Docker Hub.
+[1497.76s - 1502.36s]:  Look, I have this repository called with mosh slash hello Docker.
+[1502.36s - 1505.12s]:  Now we can take this image and run it on any computers.
+[1505.12s - 1506.72s]:  Let me show you something really cool.
+[1506.72s - 1511.00s]:  So let's search for play with Docker.
+[1511.00s - 1516.12s]:  Let's go through this page and login.
+[1516.12s - 1518.24s]:  Here we need to sign in with our Docker ID.
+[1518.24s - 1521.00s]:  Anyone can create this ID on Docker.com.
+[1521.00s - 1526.56s]:  So let's go ahead and start a lab.
+[1526.56s - 1528.60s]:  Over here, we can start a new virtual machine.
+[1528.60s - 1532.80s]:  So let's add a new instance.
+[1532.80s - 1534.84s]:  Now this virtual machine is a black machine.
+[1534.84s - 1538.52s]:  It only has an operating system, which is Linux and Docker.
+[1538.52s - 1543.80s]:  So in this terminal window, if we type node.
+[1543.80s - 1545.60s]:  Look, node command not found.
+[1545.60s - 1547.52s]:  So node is not installed here.
+[1547.52s - 1552.64s]:  But because we have Docker, we can pull and run the image that I published on Docker Hub.
+[1552.72s - 1557.52s]:  So let me maximize this window by pressing alt and enter.
+[1557.52s - 1562.52s]:  First, let's run Docker version.
+[1562.52s - 1567.48s]:  So on this machine, we're running Docker version 20.10.0.
+[1567.48s - 1578.80s]:  So to pull and run my program, first we type Docker pool, code with mosh slash hello-docker.
+[1578.80s - 1580.72s]:  We are at Docker downloaded this image.
+[1580.72s - 1583.64s]:  We can verify it by typing Docker.
+[1583.64s - 1585.32s]:  What command should we run here?
+[1585.32s - 1589.76s]:  Docker images or image elas.
+[1589.76s - 1594.04s]:  So on this machine, we have this repository, code with mosh slash hello-docker.
+[1594.04s - 1598.32s]:  And this repository contains a single image with this tag latest.
+[1598.32s - 1603.52s]:  So now we can run this application exactly the same way we run it on my development machine.
+[1603.52s - 1613.68s]:  So from any directory, we can type Docker, run, code with mosh slash hello-docker.
+[1613.68s - 1615.40s]:  And here's the message, beautiful.
+[1615.40s - 1617.52s]:  Of course, I had to cut this down in editing.
+[1617.52s - 1621.56s]:  It took a little while to start this application on this very slow virtual machine.
+[1621.56s - 1623.28s]:  But you got the point.
+[1623.28s - 1628.28s]:  So we can take any application and dockerize it by adding a Docker file to it.
+[1628.28s - 1633.20s]:  This Docker file contains instructions for packaging an application into an image.
+[1633.20s - 1637.36s]:  So just to have an image, we can run it virtually anywhere on any machine with Docker.
+[1637.36s - 1640.56s]:  Hey guys, mosh here.
+[1640.56s - 1644.60s]:  If you're serious about learning Docker, I actually have a complete Docker course on my
+[1644.60s - 1647.08s]:  coding school code with mosh.com.
+[1647.08s - 1651.40s]:  This tutorial you've been watching is a cut down version of the complete course.
+[1651.40s - 1655.68s]:  In the full course, you will learn how to run and deploy a full stack application with
+[1655.68s - 1658.08s]:  a front end, back end, and a database.
+[1658.08s - 1660.44s]:  Our application also includes automated tests.
+[1660.44s - 1664.08s]:  So it's a great real-world scenario for learning Docker.
+[1664.08s - 1668.52s]:  Just like my other courses, you will also receive a 30-day money-back guarantee and a certificate
+[1668.52s - 1670.68s]:  of completion you can add to your resume.
+[1670.68s - 1677.48s]:  In case you're interested, you can find the link down below in the description box.
+[1677.48s - 1682.68s]:  Alright, the next topic in our journey is the Linux command line.
+[1682.68s - 1683.68s]:  But why Linux?
+[1683.68s - 1685.04s]:  What if you're a Windows user?
+[1685.04s - 1688.32s]:  Well, you still need to know a bit of Linux for a number of reasons.
+[1688.32s - 1693.44s]:  The starter, Docker has its foundations built on top of basic Linux concepts.
+[1693.44s - 1697.68s]:  So if you want to be productive and troubleshoot issues easily, you need to know some of the
+[1697.68s - 1699.44s]:  basic Linux commands.
+[1699.44s - 1703.92s]:  Also, most tutorials online are based on Linux commands, so if you don't understand
+[1703.92s - 1706.52s]:  these basic commands, you're not going to get far.
+[1706.52s - 1709.40s]:  In my opinion, learning Linux is like learning English.
+[1709.40s - 1711.92s]:  I think everybody should know some English these days.
+[1711.92s - 1715.68s]:  You don't need to speak it or write a book in it, but you need to understand it.
+[1715.68s - 1719.16s]:  So unless you're a power Linux user, do not skip the section.
+[1719.16s - 1721.92s]:  It's going to be super easy and extremely useful.
+[1721.92s - 1732.20s]:  So let's jump in and get started.
+[1732.20s - 1736.48s]:  Let's start off this section by talking about Linux distributions, also called Linux
+[1736.48s - 1737.80s]:  distros.
+[1737.80s - 1741.32s]:  So as you probably know, Linux is open-source software.
+[1741.32s - 1745.60s]:  And for this reason, many individuals and communities have created their own version
+[1745.60s - 1748.28s]:  of Linux called Linux distributions.
+[1748.28s - 1753.16s]:  Each of these distributions is made to fit specialized needs like running servers, desktop
+[1753.16s - 1755.64s]:  computers, mobile phones, and so on.
+[1755.64s - 1760.00s]:  So we have Ubuntu, which is one of the most popular Linux distributions.
+[1760.00s - 1764.04s]:  We also have Debian, Alpine, which we briefly talked about.
+[1764.04s - 1766.64s]:  It's a very small Linux distribution.
+[1766.64s - 1769.24s]:  We also have Fedora, CentOS, and so on.
+[1769.24s - 1772.96s]:  Believe it or not, there are more than 1,000 Linux distributions out there.
+[1772.96s - 1777.60s]:  Now, most of these distributions support pretty much the same set of commands, but sometimes
+[1777.60s - 1781.24s]:  you might discover differences along the way, so be aware of that.
+[1781.24s - 1785.56s]:  In this section, we're going to use Ubuntu Linux because it's one of the most popular
+[1785.56s - 1786.76s]:  distributions.
+[1786.76s - 1790.96s]:  But if you have a preference for another distribution, that's totally fine.
+[1791.96s - 1799.80s]:  All right, let's see how we can run Ubuntu and this machine.
+[1799.80s - 1802.12s]:  From this lesson, I want you to start taking notes.
+[1802.12s - 1806.48s]:  So watch this video, take some notes, and then after the video, repeat the steps I have
+[1806.48s - 1807.48s]:  shown you.
+[1807.48s - 1808.48s]:  Okay?
+[1808.48s - 1812.92s]:  So we go to hop.docker.com and search for Ubuntu.
+[1812.92s - 1817.04s]:  Over here, you can see the official Ubuntu image that's been downloaded more than 10 million
+[1817.04s - 1818.04s]:  times.
+[1818.04s - 1820.40s]:  Let's have a quick look here.
+[1820.40s - 1825.00s]:  So for each image, you can see the command to pull that image onto your machine.
+[1825.00s - 1827.44s]:  Now, in this lesson, I'm not going to use the pool command.
+[1827.44s - 1829.32s]:  I'm going to show you a shortcut.
+[1829.32s - 1837.04s]:  So here in the terminal, instead of running docker pool Ubuntu, I'm going to run docker run
+[1837.04s - 1838.04s]:  Ubuntu.
+[1838.04s - 1842.96s]:  Now, if you have this image locally, docker is going to start a container with this image.
+[1842.96s - 1847.24s]:  Otherwise, it's going to pull this image behind the scene and then start a container.
+[1847.24s - 1849.04s]:  So take a look.
+[1849.04s - 1854.88s]:  So, docker is unable to find this image locally and now is pulling it from docker hop.
+[1854.88s - 1856.76s]:  Now, what happened?
+[1856.76s - 1861.08s]:  Well, docker started a container, but because we didn't interact with this container,
+[1861.08s - 1862.48s]:  the container stopped.
+[1862.48s - 1864.20s]:  Let me prove this to you.
+[1864.20s - 1870.20s]:  So if you run docker.ps, we can see the list of running processes or running containers.
+[1870.20s - 1877.60s]:  Look, we don't have any containers running here, but if you type docker.ps-a for all, we
+[1877.60s - 1880.00s]:  can see the stopped containers as well.
+[1880.00s - 1883.88s]:  Let me increase the size of the window so we can see it clearly.
+[1883.88s - 1884.88s]:  Good.
+[1884.88s - 1886.68s]:  So we have two stopped containers.
+[1886.68s - 1889.60s]:  The first one is using the Ubuntu image.
+[1889.60s - 1894.44s]:  This is the one that we just started and the second one is hello docker, which we started
+[1894.44s - 1895.68s]:  earlier in the course.
+[1895.68s - 1902.04s]:  So to start a container and interact with it, we have to type docker run dash it that
+[1902.04s - 1903.40s]:  is short for interactive.
+[1903.40s - 1906.76s]:  We're going to start a container in the interactive mode.
+[1907.08s - 1911.08s]:  In this container, we're going to load the Ubuntu image, which we have locally.
+[1911.08s - 1912.08s]:  Good.
+[1912.08s - 1915.04s]:  Now, what we have here is called the shell.
+[1915.04s - 1919.40s]:  A shell is a program that takes our commands and passes them to the operating system for
+[1919.40s - 1920.40s]:  execution.
+[1920.40s - 1921.40s]:  Okay.
+[1921.40s - 1924.04s]:  Now, what we have here is called the shell prompt.
+[1924.04s - 1926.84s]:  Let me break it down for you so it doesn't look mysterious.
+[1926.84s - 1930.84s]:  The first part, root represents the currently locked in user.
+[1930.84s - 1935.32s]:  So by default, I'm locked in as the root user, which has the highest privileges.
+[1935.32s - 1938.68s]:  And after the at sign, we have the name of the machine.
+[1938.68s - 1943.92s]:  So this container has this ID, which is automatically generated by docker.
+[1943.92s - 1946.36s]:  And in this case, it's like the name of a machine.
+[1946.36s - 1947.36s]:  Okay.
+[1947.36s - 1952.92s]:  And after the colon, you can see forward slash that represents where we are in the file
+[1952.92s - 1953.92s]:  system.
+[1953.92s - 1956.84s]:  And forward slash represents the root directory.
+[1956.84s - 1958.88s]:  That is the highest directory in the file system.
+[1958.88s - 1960.44s]:  We'll talk about that soon.
+[1960.44s - 1961.92s]:  Then we have a pound.
+[1961.92s - 1964.32s]:  And this means I have the highest privileges.
+[1964.32s - 1966.52s]:  And this I've locked in as the root user.
+[1966.52s - 1970.92s]:  If I locked in as a normal user, instead of a pound, we would see a dollar sign.
+[1970.92s - 1971.92s]:  Okay.
+[1971.92s - 1975.04s]:  So in this shell, we can execute a bunch of commands.
+[1975.04s - 1976.84s]:  For example, we can say echo.
+[1976.84s - 1978.08s]:  Hello.
+[1978.08s - 1979.96s]:  And this prints hello on the terminal.
+[1979.96s - 1982.60s]:  We can also say, who am I?
+[1982.60s - 1984.32s]:  This shows the current user.
+[1984.32s - 1988.40s]:  So this commands that we're running here, this shell program that I told you about takes
+[1988.40s - 1991.52s]:  this command and passes them to the kernel for execution.
+[1991.52s - 1993.56s]:  Now, let me show you something really cool.
+[1993.56s - 1996.88s]:  Let's be type echo dollar sign zero.
+[1996.88s - 1999.28s]:  We can see the location of this shell program.
+[1999.28s - 2000.48s]:  Take a look.
+[2000.48s - 2004.48s]:  So that is forward slash bin slash bash.
+[2004.48s - 2007.04s]:  So bin is a folder or a directory.
+[2007.04s - 2012.40s]:  And inside this directory, we have a program called bash, which is short for born again
+[2012.40s - 2013.40s]:  shell.
+[2013.40s - 2018.04s]:  So apparently, Steve born is the first person who created a shell program.
+[2018.04s - 2021.52s]:  Bash or born again shell is a reference to Steve born.
+[2021.52s - 2024.84s]:  So bash is an enhanced version of the original shell program.
+[2024.84s - 2025.84s]:  Okay.
+[2025.84s - 2030.72s]:  Now one thing you probably noticed is that in Linux, we use a forward slash to separate files
+[2030.72s - 2032.04s]:  and directories.
+[2032.04s - 2034.24s]:  But in Windows, we use a backslash.
+[2034.24s - 2036.28s]:  So that's one of the first differences.
+[2036.28s - 2040.48s]:  The other difference is that Linux is a case sensitive operating system.
+[2040.48s - 2044.80s]:  So if you type echo with a capital E, it's not going to work.
+[2044.80s - 2047.96s]:  Bash tells us echo command not found.
+[2047.96s - 2050.36s]:  So lowercase and uppercase letters are different.
+[2050.36s - 2052.00s]:  And this is not limited to commands.
+[2052.00s - 2053.60s]:  It's applicable everywhere.
+[2053.60s - 2058.56s]:  If you want to reference a file or a directory or a user pretty much anything, we should always
+[2058.56s - 2062.68s]:  spell it properly with the right upper case and lowercase letters.
+[2062.68s - 2067.36s]:  Now one last thing for this lesson using the up and down arrows.
+[2067.36s - 2070.00s]:  We can go through the commands we have executed so far.
+[2070.00s - 2073.04s]:  So this is a pretty useful shortcut you need to know because you don't want to type these
+[2073.04s - 2075.04s]:  commands manually all the time.
+[2075.04s - 2076.04s]:  Okay.
+[2076.04s - 2080.32s]:  Also, using the history command, we can see all the commands we have executed lately.
+[2080.32s - 2082.00s]:  So take a look.
+[2082.00s - 2083.56s]:  So earlier we used who am I.
+[2083.56s - 2085.76s]:  We also used echo and so on.
+[2085.76s - 2090.04s]:  Now we can replay any of these commands by typing an exclamation mark followed by the
+[2090.04s - 2091.12s]:  command number.
+[2091.12s - 2095.84s]:  So if I type two, this is exactly like running who am I.
+[2095.84s - 2096.84s]:  Now is your turn.
+[2096.84s - 2100.76s]:  I want you to pause the video, go through your notes and execute the commands I have shown
+[2100.76s - 2102.96s]:  you in this video.
+[2103.76s - 2113.72s]:  These days, most operating systems and development platforms come with a package manager.
+[2113.72s - 2118.40s]:  You've probably worked with tools like NPM, yarn, pip and so on.
+[2118.40s - 2123.50s]:  Here in Ubuntu, we also have a package manager called apt, which is short for advanced
+[2123.50s - 2124.80s]:  package tool.
+[2124.80s - 2126.80s]:  So let's execute this command.
+[2126.80s - 2130.32s]:  Look, this command has a bunch of sub commands.
+[2130.32s - 2133.48s]:  So using list, we can see the list of packages.
+[2133.48s - 2134.92s]:  We can also search for them.
+[2134.92s - 2136.76s]:  We can show details about the package.
+[2136.76s - 2140.56s]:  We can install, reinstall and remove a package and so on.
+[2140.56s - 2143.84s]:  Now technically, apt is the newer package manager.
+[2143.84s - 2148.68s]:  We also have apt yet, which you see a lot in online tutorials going forward.
+[2148.68s - 2151.76s]:  We're going to use apt because it's easier to work with.
+[2151.76s - 2155.48s]:  So let's say we want to install a package called nano.
+[2155.48s - 2157.68s]:  Nano is a basic text editor for Linux.
+[2157.84s - 2162.32s]:  If you press enter here, we get an error because this image, this Ubuntu image we are
+[2162.32s - 2164.44s]:  running does not have nano.
+[2164.44s - 2167.52s]:  So this is where we use apt to install this package.
+[2167.52s - 2174.72s]:  So if we type apt install nano, we get an error saying unable to locate package nano.
+[2174.72s - 2176.12s]:  Where is this happening?
+[2176.12s - 2180.92s]:  Well, here in Linux, we have the package database and this database might contain hundreds
+[2180.92s - 2184.40s]:  of packages, but not all these packages are installed.
+[2184.40s - 2190.20s]:  So if you want to see all the packages in this database, we type apt list.
+[2190.20s - 2192.16s]:  Look, these are all the packages.
+[2192.16s - 2196.60s]:  Now, in front of these packages, you can see some of them are installed, but not all
+[2196.60s - 2199.20s]:  packages in this database are installed.
+[2199.20s - 2205.16s]:  When we type apt install nano, this command looks at the package database and in this database,
+[2205.16s - 2207.76s]:  it cannot find a package called nano.
+[2207.76s - 2213.12s]:  So this is where we use the update command to update the package database.
+[2213.12s - 2215.56s]:  Now, let me press enter.
+[2215.56s - 2221.32s]:  Then it's going to all these sources like security.ubuntu.com and all these other websites
+[2221.32s - 2223.60s]:  to download the list of packages.
+[2223.60s - 2225.92s]:  So now our package database is updated.
+[2225.92s - 2231.80s]:  So if you run apt list, we see far more packages.
+[2231.80s - 2236.28s]:  And as you can see, most of these packages are not installed because we don't have installed
+[2236.28s - 2237.60s]:  in front of them.
+[2237.60s - 2244.80s]:  So now we can run apt install nano and nano is installed.
+[2244.80s - 2246.72s]:  So here is what you need to take away.
+[2246.72s - 2252.12s]:  Before installing a package, you should always run apt update to update your package database
+[2252.12s - 2256.16s]:  and then you can install a package like nano.
+[2256.16s - 2258.88s]:  Now, we'll talk about nano later in this section.
+[2258.88s - 2262.96s]:  But before going forward, let's make sure that this package is installed properly.
+[2262.96s - 2265.52s]:  So if you type nano, great.
+[2265.52s - 2267.92s]:  So here we have a takes editor, we can type something.
+[2267.92s - 2270.64s]:  Let me resize the window.
+[2270.64s - 2272.84s]:  So down below, you can see the shortcuts.
+[2272.84s - 2277.04s]:  To exit, we have to press control and X.
+[2277.04s - 2281.72s]:  Now it's asking if you want to save the changes, no, so we're going to press N, good.
+[2281.72s - 2283.00s]:  We're back here.
+[2283.00s - 2286.84s]:  We can clear the terminal window by pressing control and L.
+[2286.84s - 2288.08s]:  Okay?
+[2288.08s - 2289.60s]:  So we have installed nano.
+[2289.60s - 2290.92s]:  Now let's say we want to remove it.
+[2290.92s - 2295.36s]:  So we type apt remove nano.
+[2295.36s - 2297.20s]:  Let's ask him for confirmation.
+[2297.20s - 2298.60s]:  Let's go ahead.
+[2298.60s - 2299.60s]:  Great.
+[2299.60s - 2300.76s]:  So nano is gone.
+[2300.76s - 2305.92s]:  If I type nano, we get this error saying no such file or directory.
+[2305.92s - 2307.92s]:  Now here's a little exercise for you.
+[2307.92s - 2310.32s]:  In this image, we don't have Python.
+[2310.32s - 2311.52s]:  So we get an error.
+[2311.52s - 2316.12s]:  So I want you to use apt to install Python in this image, make sure it works and then remove
+[2316.12s - 2323.20s]:  it.
+[2323.20s - 2328.36s]:  So in Linux, just like Windows, our files and directories are organized in a tree in a
+[2328.36s - 2330.20s]:  hierarchical structure.
+[2330.20s - 2335.00s]:  So in Windows, we have a structure like this with C drive on top of the hierarchy.
+[2335.00s - 2339.28s]:  Then below that, we have directories like program files, windows and so on.
+[2339.28s - 2343.00s]:  In Linux, we have the root directory on top of the hierarchy.
+[2343.00s - 2345.28s]:  Below that, we have a bunch of standard directories.
+[2345.28s - 2349.68s]:  For example, we have Ben, which includes binaries or programs.
+[2349.68s - 2353.52s]:  We have boot, which includes all the files related to booting.
+[2353.52s - 2354.64s]:  Then we have dev.
+[2354.64s - 2357.76s]:  The first time I saw this, I thought this is short for development.
+[2357.76s - 2358.76s]:  It's not.
+[2358.76s - 2360.16s]:  It's short for devices.
+[2360.16s - 2365.92s]:  So in Linux, everything is a file, including devices, directories, network socket, pipes
+[2365.92s - 2366.92s]:  and so on.
+[2366.92s - 2371.60s]:  So the files that are needed to access devices are stored in this directory.
+[2371.60s - 2372.60s]:  Then we have Etsy.
+[2372.60s - 2373.76s]:  There are different opinions.
+[2373.76s - 2374.92s]:  What is this short for?
+[2374.92s - 2379.52s]:  But one common opinion is this is short for editable text configuration.
+[2379.52s - 2381.96s]:  This is where we have configuration files.
+[2381.96s - 2383.16s]:  We also have home.
+[2383.16s - 2386.20s]:  This is where home directories for users are stored.
+[2386.20s - 2390.84s]:  So on a machine with multiple users, each user is going to have a home directory here.
+[2390.84s - 2394.36s]:  We also have root, which is the home directory of the root user.
+[2394.36s - 2396.84s]:  Only the root user can access this directory.
+[2396.84s - 2401.72s]:  Then we have lib, which is used for keeping library files like software library dependencies.
+[2401.72s - 2404.40s]:  We have war, which is short for variable.
+[2404.40s - 2408.72s]:  And this is where we have files that are updated frequently, like log files, application
+[2408.72s - 2410.04s]:  data and so on.
+[2410.04s - 2414.88s]:  And finally, we have proc, which includes files that represent running processes.
+[2414.88s - 2418.28s]:  So once again, in Linux, everything is a file.
+[2418.28s - 2420.96s]:  Processes, devices, even directories are files.
+[2420.96s - 2423.84s]:  Now, you don't need to memorize any of these directories.
+[2423.84s - 2425.24s]:  I just listed them here.
+[2425.24s - 2428.96s]:  So as we go through the course, these directories look familiar to you.
+[2428.96s - 2429.96s]:  That's all.
+[2429.96s - 2432.52s]:  Next I'm going to show you how to navigate the file system.
+[2432.52s - 2434.52s]:  And there you will see these directories one more time.
+[2439.56s - 2444.08s]:  Let's see how we can navigate the Linux file system.
+[2444.08s - 2450.44s]:  So the first command we're going to talk about is Pwd, which is short for print working directory.
+[2450.44s - 2453.04s]:  With this, we can see where we are in the file system.
+[2453.04s - 2456.76s]:  So a forward slash represents the root directory.
+[2456.76s - 2461.44s]:  Now to see the files and directories here, we type LS, which is short for list.
+[2461.44s - 2464.72s]:  So we have been, which we talked about earlier, that is short for binaries.
+[2464.72s - 2467.28s]:  This is where we have binary files and programs.
+[2467.28s - 2470.40s]:  We have dev, which includes files for devices.
+[2470.40s - 2475.44s]:  We have boot, which includes boot files, Etsy, which includes configuration files and so on.
+[2475.44s - 2479.96s]:  Now by default, LS lists these items on multiple lines.
+[2479.96s - 2484.52s]:  If you don't like this layout, and want to show one item per line, you need to pass an
+[2484.52s - 2485.52s]:  option.
+[2485.52s - 2487.00s]:  That is dash one.
+[2487.00s - 2489.56s]:  You might prefer this layout.
+[2489.56s - 2495.08s]:  We have another option, dash L, for seeing a long listing.
+[2495.08s - 2497.08s]:  This listing includes more details.
+[2497.08s - 2501.96s]:  So in the first column, we have the permissions of this file or directory.
+[2501.96s - 2505.80s]:  The first time you see this, it might look really scary, but trust me, it's easier than
+[2505.80s - 2506.80s]:  you think.
+[2506.80s - 2509.04s]:  We'll talk about that later in this section.
+[2509.04s - 2512.76s]:  Over here, you can see the user that owns this file or directory.
+[2512.76s - 2513.96s]:  We can see the size.
+[2513.96s - 2516.12s]:  We can see the date and so on.
+[2516.12s - 2519.52s]:  Now to change the current directory, we use the CD command.
+[2519.52s - 2521.08s]:  We have the same command in Windows.
+[2521.08s - 2524.84s]:  Now here we can type a relative or an absolute path.
+[2524.84s - 2527.68s]:  A relative path is relative to where we are.
+[2527.68s - 2531.32s]:  So in this root directory, we have directories like bin, boot and so on.
+[2531.32s - 2533.08s]:  So this is a relative path.
+[2533.08s - 2538.00s]:  Now in contrast, an absolute path always starts from the root directory.
+[2538.00s - 2540.92s]:  So let's go to a directory starting with e.
+[2540.92s - 2543.64s]:  Now we can press tab to get all the completion.
+[2543.64s - 2544.64s]:  Beautiful.
+[2544.64s - 2547.32s]:  Now let's go to a directory starting with a.
+[2547.32s - 2551.80s]:  Now if you press tab, nothing happens because we have multiple directories starting with
+[2551.80s - 2552.80s]:  a.
+[2552.80s - 2554.80s]:  Now we can press tab one more time.
+[2554.80s - 2555.80s]:  Great.
+[2555.80s - 2561.88s]:  So you have three entries, three directories at user.conf, alternatives and app.
+[2561.88s - 2566.40s]:  So let's type the second letter P and then press tab.
+[2566.40s - 2567.40s]:  Beautiful.
+[2567.40s - 2569.92s]:  Now let's see what we have in this directory.
+[2569.92s - 2574.88s]:  So these blue items are directories and sources that list is a file.
+[2574.88s - 2580.12s]:  Now to get out of this directory, we can go one level up by typing two periods.
+[2580.36s - 2583.80s]:  Again, I'm pretty sure you're familiar with this, but I want to cover it to make this
+[2583.80s - 2585.60s]:  section comprehensive.
+[2585.60s - 2591.56s]:  So we can go one level up to get to the Etsy directory or two levels up to get to the
+[2591.56s - 2592.56s]:  root directory.
+[2592.56s - 2595.76s]:  Look, we're currently in the root directory.
+[2595.76s - 2599.52s]:  Now when using LS, we can optionally specify a path.
+[2599.52s - 2603.52s]:  Let's say I'm somewhere in the file system, but I want to look at the content of another
+[2603.52s - 2604.52s]:  directory.
+[2604.52s - 2606.48s]:  I don't want to navigate to that directory.
+[2606.48s - 2608.24s]:  So I'm currently in the root directory.
+[2608.24s - 2612.64s]:  I want to know what files and directories we have inside the bean directory.
+[2612.64s - 2617.72s]:  So once again, we can type a relative path or an absolute path starting from the root
+[2617.72s - 2619.16s]:  directory.
+[2619.16s - 2621.56s]:  So here are the binaries in this directory.
+[2621.56s - 2622.56s]:  Look at PWD.
+[2622.56s - 2625.28s]:  That's the command that we just execute.
+[2625.28s - 2628.96s]:  So PWD is a program in this directory.
+[2628.96s - 2630.56s]:  Here's another example.
+[2630.56s - 2632.72s]:  Look at Echo.
+[2632.72s - 2637.68s]:  So most of the commands we have been exploring so far are programs or binaries in the bin
+[2637.68s - 2638.68s]:  directory.
+[2638.68s - 2639.68s]:  Okay?
+[2639.68s - 2641.52s]:  Now let me show you a shortcut.
+[2641.52s - 2647.64s]:  Earlier I told you that here we have this home directory where each user has a home directory.
+[2647.64s - 2652.48s]:  But the root user has a special home directory called root.
+[2652.48s - 2654.72s]:  Now to get here, there are two options.
+[2654.72s - 2660.08s]:  We can type an absolute or relative path and go to root, but there is a shortcut.
+[2660.08s - 2662.72s]:  So let me get out of this directory.
+[2662.72s - 2665.68s]:  So I'm currently in the root directory.
+[2665.68s - 2671.24s]:  To get to my home directory, I can type a tilde and this applies to all users, not just
+[2671.24s - 2672.44s]:  the root user.
+[2672.44s - 2676.40s]:  Whenever we type CD, tilde, we go to our home directory.
+[2676.40s - 2680.88s]:  Now, right now there is nothing here, but in the next lesson I will show you how to create
+[2680.88s - 2683.00s]:  some files in this directory.
+[2683.00s - 2687.12s]:  So before moving on to the next lesson, I want you to spend a couple of minutes and play
+[2687.12s - 2689.48s]:  with the commands we explored in this lesson.
+[2689.48s - 2693.04s]:  And having it the file system, get adventurous, see what you can discover.
+[2693.04s - 2697.88s]:  I'll see you in the next lesson.
+[2697.88s - 2704.00s]:  Let's see how we can manipulate files and directories.
+[2704.00s - 2708.20s]:  So I'm currently in the root directory and I want to go to my home directory.
+[2708.20s - 2709.20s]:  How can I do that?
+[2709.20s - 2710.48s]:  Do you remember?
+[2710.48s - 2713.48s]:  We type CD, tilde, right?
+[2713.48s - 2717.72s]:  Now in this directory, I want to create a directory called test.
+[2717.72s - 2721.16s]:  So we type MKDurr, test.
+[2721.16s - 2722.24s]:  Let's verify.
+[2722.24s - 2723.24s]:  It's right here.
+[2723.24s - 2726.04s]:  As I told you before, blue represents a directory.
+[2726.04s - 2728.72s]:  Now, let's say we want to rename this directory.
+[2728.72s - 2730.52s]:  How do we do that?
+[2730.52s - 2731.84s]:  We use the move command.
+[2731.84s - 2735.48s]:  With this we can rename files and folders or move them somewhere else.
+[2735.48s - 2740.60s]:  So we can move or rename test to Docker.
+[2740.60s - 2742.80s]:  All right, beautiful.
+[2742.80s - 2746.12s]:  Now let's go in this directory.
+[2746.12s - 2749.52s]:  Not to create a new file, we use the touch command.
+[2749.52s - 2750.96s]:  So we can create hello.txt.
+[2750.96s - 2755.08s]:  Look, we have this new file here.
+[2755.08s - 2756.72s]:  This is a new M to file.
+[2756.72s - 2759.00s]:  In the next lesson, I will show you how to edit files.
+[2759.00s - 2760.92s]:  So for now, don't worry about it.
+[2760.92s - 2765.72s]:  Also, using the touch command, we can create multiple files in one go.
+[2765.72s - 2769.96s]:  So we can create file 1, file 2, and file 3.
+[2770.96s - 2772.92s]:  Now take a look, beautiful.
+[2772.92s - 2774.40s]:  Now I've got a question for you.
+[2774.40s - 2777.56s]:  How do we list those files with a single file per line?
+[2777.56s - 2778.76s]:  Do you remember?
+[2778.76s - 2780.80s]:  We type ls-1.
+[2781.80s - 2785.20s]:  Now let's say we want to rename hello.txt to something else.
+[2785.20s - 2788.04s]:  Once again, we can use the move command.
+[2788.04s - 2791.48s]:  So we type h, press tab to get auto completion.
+[2791.48s - 2794.96s]:  We can rename this to hello-darker.txt.
+[2794.96s - 2797.52s]:  Or we can move it to a different directory.
+[2797.52s - 2800.84s]:  For example, we can move it to the Etsy directory.
+[2800.84s - 2802.80s]:  And here I'm using an absolute path.
+[2802.80s - 2806.16s]:  Because my path has started from the root directory.
+[2806.16s - 2808.20s]:  Now in this lesson, I don't want to move this anywhere.
+[2808.20s - 2813.36s]:  So I just want to rename this to hello-darker.txt.
+[2813.36s - 2817.00s]:  And if you're wondering how I remove this entire word in one go,
+[2817.00s - 2819.36s]:  I press control and w.
+[2819.36s - 2820.84s]:  So let's bring it back.
+[2820.84s - 2823.52s]:  Hello-darker.txt.
+[2823.52s - 2824.36s]:  Take a look.
+[2824.36s - 2825.60s]:  Good.
+[2825.60s - 2827.84s]:  Now let's see how we can remove one or more files.
+[2827.84s - 2830.48s]:  To do that, use the RM command.
+[2830.48s - 2832.40s]:  Like here, we can type one or more files.
+[2832.40s - 2837.96s]:  So we can say file 1.txt, file 2.txt, or we can use a pattern.
+[2837.96s - 2844.48s]:  For example, I can say I want to remove all files that start with file.
+[2844.48s - 2846.56s]:  Let's verify it.
+[2846.56s - 2847.04s]:  Beautiful.
+[2847.04s - 2849.00s]:  We only have hello-darker.
+[2849.00s - 2853.36s]:  Now let's get out of this directory and remove the directory itself.
+[2853.36s - 2857.44s]:  So we type RM, Docker.
+[2857.44s - 2860.68s]:  Now we get an error saying Docker is a directory.
+[2860.68s - 2866.00s]:  So to remove directories, we have to use the R option, which is short for recursive.
+[2866.00s - 2870.60s]:  So we want to remove this directory and all is content recursively.
+[2870.60s - 2873.24s]:  Now we press D, tab, beautiful.
+[2873.24s - 2876.36s]:  So let's verify there is nothing here.
+[2876.36s - 2878.16s]:  So let's quickly recap.
+[2878.16s - 2881.12s]:  We use MKDAR to create a new directory.
+[2881.12s - 2883.60s]:  We use touch to create a new file.
+[2883.60s - 2887.56s]:  We use move to move or rename files or directories.
+[2887.56s - 2890.88s]:  And we use RM to remove files and directories.
+[2890.88s - 2895.72s]:  Now as an exercise, go to your home directory, create a bunch of files and directories,
+[2895.72s - 2897.84s]:  rename them, and then remove them.
+[2897.84s - 2900.96s]:  In the next lesson, I'm going to show you how to view and edit files.
+[2901.96s - 2910.52s]:  Alright, let's see how we can edit and view files.
+[2910.52s - 2913.12s]:  So earlier, we briefly talked about nano.
+[2913.12s - 2916.12s]:  Nano is a basic text editor for Linux.
+[2916.12s - 2920.84s]:  Now on this image that we are running, we don't have nano, so we have to install it.
+[2920.84s - 2923.36s]:  Do you remember the command for installing nano?
+[2923.36s - 2926.20s]:  That is apt install nano.
+[2926.20s - 2929.92s]:  Alright, now we have nano.
+[2929.92s - 2933.36s]:  So we can launch it and optionally supply a file name.
+[2933.36s - 2935.84s]:  Let's say file one, the TXT.
+[2935.84s - 2938.00s]:  So here we have a basic text editor.
+[2938.00s - 2940.76s]:  We can type whatever we want.
+[2940.76s - 2943.16s]:  And when we are done, look down below.
+[2943.16s - 2945.92s]:  The shortcut for exiting is control and x.
+[2945.92s - 2947.72s]:  So I'm going to press that.
+[2947.72s - 2950.04s]:  Now it's asking if you want to save the changes.
+[2950.04s - 2951.96s]:  So we press yes.
+[2951.96s - 2953.40s]:  And here we confirm the file name.
+[2953.40s - 2956.44s]:  We can keep the same file or change the file name.
+[2956.44s - 2957.72s]:  Let's go ahead.
+[2957.72s - 2960.80s]:  So down in this directory, we have file one.txt.
+[2960.80s - 2961.80s]:  Beautiful.
+[2961.80s - 2965.44s]:  Now to see the content of this file, we have a few different commands.
+[2965.44s - 2967.24s]:  The simplest one is cat.
+[2967.24s - 2968.96s]:  And this is nothing to do with cats.
+[2968.96s - 2970.72s]:  It's short for concatenate.
+[2970.72s - 2975.32s]:  So later I will show you how we can use this command to concatenate or combine multiple
+[2975.32s - 2976.32s]:  files.
+[2976.32s - 2979.16s]:  But with cat, we can also see the content of a file.
+[2979.16s - 2984.56s]:  So if you say cat file one.txt, we can see the content of this file.
+[2984.56s - 2988.72s]:  Now cat is useful if our file is short and fits on one page.
+[2988.72s - 2993.32s]:  But if you're dealing with a long file, it's better to use the more command.
+[2993.32s - 2994.40s]:  Let me give you an example.
+[2994.40s - 2998.88s]:  So I'm going to use cat to show the content of this file.
+[2998.88s - 3003.80s]:  Slash Etsy slash adduser.conf.
+[3003.80s - 3005.12s]:  This is a really long file.
+[3005.12s - 3008.92s]:  So if I scroll up, look, we have a lot of text.
+[3008.92s - 3011.96s]:  Now sometimes you don't want to see all the content in one go.
+[3011.96s - 3012.96s]:  You want to scroll down.
+[3012.96s - 3014.44s]:  You want to go page by page.
+[3014.44s - 3017.12s]:  This is where we use the more command.
+[3017.12s - 3022.16s]:  So more slash Etsy slash adduser.conf.
+[3022.16s - 3026.52s]:  Now down below, look, you can see more 15%.
+[3026.52s - 3028.84s]:  So we're seeing 15% of this file.
+[3028.84s - 3032.12s]:  Now if you press space, we can go to the next page.
+[3032.12s - 3034.56s]:  So now we're at the position 33%.
+[3034.56s - 3038.72s]:  Alternatively, we can press enter to go one line at a time.
+[3038.72s - 3041.96s]:  Now the problem with more is that we can only scroll down.
+[3041.96s - 3043.36s]:  We cannot scroll up.
+[3043.44s - 3047.64s]:  So to do that, we have to use a different command called less.
+[3047.64s - 3050.04s]:  So to exit here, we press Q.
+[3050.04s - 3051.04s]:  Good.
+[3051.04s - 3053.52s]:  Now in this image, we don't have less.
+[3053.52s - 3055.88s]:  So once again, we have to manually install it.
+[3055.88s - 3058.36s]:  So apt install less.
+[3058.36s - 3062.68s]:  So less is a newer command that is supposed to replace more.
+[3062.68s - 3064.76s]:  Let's go ahead.
+[3064.76s - 3065.56s]:  Great.
+[3065.56s - 3069.40s]:  So let's look at the same file using the less command.
+[3069.40s - 3072.56s]:  Slash Etsy slash adduser.conf.
+[3072.56s - 3075.68s]:  So now using the up and down arrows,
+[3075.68s - 3078.28s]:  we can scroll down or up.
+[3078.28s - 3082.56s]:  So just by pressing up and down arrows, we also have space.
+[3082.56s - 3087.24s]:  We can go to the next page and enter just like the more command.
+[3087.24s - 3090.24s]:  And when we are done, we can press Q.
+[3090.24s - 3093.48s]:  Now we have a couple more commands for viewing the content of a file.
+[3093.48s - 3097.44s]:  We have head, which we can use to display the first few lines.
+[3097.44s - 3101.96s]:  So here we can supply an option and say the number of lines we want to see is five.
+[3102.60s - 3105.00s]:  Let's look at the same file.
+[3105.00s - 3109.32s]:  So this shows the first five lines of this file.
+[3109.32s - 3111.08s]:  Similarly, we have tail.
+[3111.08s - 3112.56s]:  We chose the last few lines.
+[3112.56s - 3118.96s]:  So we supply an option and say we want to look at the last five files.
+[3118.96s - 3120.00s]:  That's it.
+[3120.00s - 3123.80s]:  So to recap, we can use nano to read something to a file.
+[3123.80s - 3127.28s]:  We can use cat to view the content of small files.
+[3127.28s - 3131.52s]:  Less to view the content of long files in an interactive way.
+[3131.52s - 3136.00s]:  And head and tail to view the first view or the last few lines of a file.
+[3142.60s - 3147.28s]:  One of the important concepts in Linux is the concept of standard input and output.
+[3147.28s - 3152.28s]:  So standard input represents the keyboard and standard output represents the screen.
+[3152.28s - 3155.56s]:  But we can always change the source of the input or the output.
+[3155.56s - 3157.48s]:  This is called redirection.
+[3157.48s - 3159.44s]:  Let me show you using a few examples.
+[3159.44s - 3163.04s]:  So we talked about the cat command to see the content of a file.
+[3163.04s - 3165.56s]:  Let's say file one to TXT.
+[3165.56s - 3170.88s]:  When we execute this command, this command or this program reads data from this file
+[3170.88s - 3174.20s]:  and prints it on the standard output, which is the screen.
+[3174.20s - 3176.76s]:  That is why we see the content here.
+[3176.76s - 3180.92s]:  But using the redirection operator, which is the greater than sign,
+[3180.92s - 3186.44s]:  we can redirect the output from the screen to, let's say, a different file.
+[3186.48s - 3191.08s]:  So now cat will read the content from this file and write it to this file.
+[3191.08s - 3192.72s]:  Take a look.
+[3192.72s - 3195.24s]:  So we have file to the TXT.
+[3195.24s - 3200.24s]:  If we view it, we see the exact same content as file one.
+[3200.24s - 3200.96s]:  Okay.
+[3200.96s - 3202.40s]:  Now what is the point of this?
+[3202.40s - 3208.48s]:  Well, earlier, I told you that we can use the cat command to concatenate or combine multiple files.
+[3208.48s - 3214.04s]:  So here we can say cat file one to TXT and file to the TXT.
+[3214.04s - 3219.60s]:  If we present her, cat is going to read the data from both these files and printed on the terminal,
+[3219.60s - 3221.36s]:  which is the standard output.
+[3221.36s - 3226.88s]:  But once again, using the redirection operator, we can write the result to a different file.
+[3226.88s - 3228.84s]:  Combined the TXT.
+[3228.84s - 3232.40s]:  So this is how we can use this command to combine multiple files.
+[3232.40s - 3235.80s]:  Now, the redirection operator is not limited to the cat command.
+[3235.80s - 3237.56s]:  We can use it pretty much anywhere.
+[3237.56s - 3241.16s]:  For example, earlier we talked about the echo command.
+[3241.16s - 3243.04s]:  If we say echo, hello,
+[3243.08s - 3244.88s]:  we see the result on the terminal.
+[3244.88s - 3250.32s]:  But if we say echo, hello, to hello.txt.
+[3250.32s - 3255.92s]:  Now we have a new file here, hello.txt, which contains hello.
+[3255.92s - 3260.08s]:  So if you want to write a single line to a file, we don't have to use nano.
+[3260.08s - 3261.44s]:  We can use the echo command.
+[3261.44s - 3265.84s]:  So echo whatever to whatever file the TXT.
+[3265.84s - 3266.88s]:  Okay.
+[3266.88s - 3268.76s]:  Now here's a little exercise for you.
+[3268.80s - 3272.48s]:  I want you to get a long listing of the files in the Etsy directory
+[3272.48s - 3274.64s]:  and write the output to a file.
+[3274.64s - 3277.32s]:  So pause the video and work on this for a few seconds.
+[3280.56s - 3282.84s]:  So here's the solution.
+[3282.84s - 3286.72s]:  To get a long listing, we type ls-l,
+[3286.72s - 3289.96s]:  then we specify the path, the Etsy directory.
+[3289.96s - 3292.44s]:  Now, instead of printing the result on the terminal,
+[3292.44s - 3296.08s]:  we're going to write it to a file called files.txt.
+[3296.08s - 3297.00s]:  Okay.
+[3297.04s - 3299.00s]:  Now let's view this file.
+[3299.76s - 3300.96s]:  Perfect.
+[3300.96s - 3303.16s]:  Now one more thing before we finish this lesson.
+[3303.16s - 3306.84s]:  Using the greater an unsigned, we can redirect the standard output,
+[3306.84s - 3311.04s]:  but we also have the less than sign to redirect the standard input.
+[3311.04s - 3313.12s]:  I personally haven't found many use cases for this,
+[3313.12s - 3315.52s]:  so I didn't cover it in this lesson.
+[3315.52s - 3317.32s]:  All right, that's all about redirection.
+[3317.32s - 3320.64s]:  Next, we're going to talk about searching for text and files.
+[3322.64s - 3323.84s]:  Hey guys, Moch here.
+[3323.84s - 3325.68s]:  If you're serious about learning Docker,
+[3325.68s - 3327.76s]:  I actually have a complete Docker course
+[3327.76s - 3330.36s]:  on my coding school code with Moch.com.
+[3330.36s - 3332.12s]:  This tutorial you've been watching
+[3332.12s - 3334.68s]:  is a cut down version of the complete course.
+[3334.68s - 3337.56s]:  In the full course, you will learn how to run and deploy
+[3337.56s - 3340.40s]:  a full stack application with a front end, back end,
+[3340.40s - 3341.40s]:  and a database.
+[3341.40s - 3343.68s]:  Our application also includes automated tests,
+[3343.68s - 3347.24s]:  so it's a great real-world scenario for learning Docker.
+[3347.24s - 3350.12s]:  Just like my other courses, you will also receive a 30-day
+[3350.12s - 3352.60s]:  money-back guarantee and a certificate of completion
+[3352.60s - 3353.96s]:  you can add to your resume.
+[3353.96s - 3356.56s]:  In case you're interested, you can find the link down below
+[3356.56s - 3357.92s]:  in the description box.
